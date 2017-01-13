@@ -1,0 +1,15 @@
+c:\users\valen\documents\visual studio 2015\Projects\Ode OS\Ode OS\bin\Debug\Ode OS.dll
+c:\users\valen\documents\visual studio 2015\Projects\Ode OS\Ode OS\bin\Debug\Ode OS.pdb
+c:\users\valen\documents\visual studio 2015\Projects\Ode OS\Ode OS\bin\Debug\Cosmos.Debug.Kernel.dll
+c:\users\valen\documents\visual studio 2015\Projects\Ode OS\Ode OS\bin\Debug\Cosmos.System.dll
+c:\users\valen\documents\visual studio 2015\Projects\Ode OS\Ode OS\bin\Debug\Cosmos.Common.dll
+c:\users\valen\documents\visual studio 2015\Projects\Ode OS\Ode OS\bin\Debug\Cosmos.HAL.dll
+c:\users\valen\documents\visual studio 2015\Projects\Ode OS\Ode OS\bin\Debug\Cosmos.Core.dll
+c:\users\valen\documents\visual studio 2015\Projects\Ode OS\Ode OS\bin\Debug\Cosmos.System.pdb
+c:\users\valen\documents\visual studio 2015\Projects\Ode OS\Ode OS\bin\Debug\Cosmos.Debug.Kernel.pdb
+c:\users\valen\documents\visual studio 2015\Projects\Ode OS\Ode OS\bin\Debug\Cosmos.Common.pdb
+c:\users\valen\documents\visual studio 2015\Projects\Ode OS\Ode OS\bin\Debug\Cosmos.HAL.pdb
+c:\users\valen\documents\visual studio 2015\Projects\Ode OS\Ode OS\bin\Debug\Cosmos.Core.pdb
+c:\users\valen\documents\visual studio 2015\Projects\Ode OS\Ode OS\obj\x86\Debug\Ode OS.csprojResolveAssemblyReference.cache
+c:\users\valen\documents\visual studio 2015\Projects\Ode OS\Ode OS\obj\x86\Debug\Ode OS.dll
+c:\users\valen\documents\visual studio 2015\Projects\Ode OS\Ode OS\obj\x86\Debug\Ode OS.pdb
