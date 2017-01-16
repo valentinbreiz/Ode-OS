@@ -5,7 +5,7 @@ using Sys = Cosmos.System;
 using System.IO;
 using Cosmos.System.FileSystem;
 
-namespace Ode_OS
+namespace CosmosKernel1
 {
     public class Kernel : Sys.Kernel
     {
@@ -21,7 +21,7 @@ namespace Ode_OS
             Console.WriteLine("Scan du systeme de fichiers...");
             Sys.FileSystem.VFS.VFSManager.RegisterVFS(FS);
 
-            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.ForegroundColor = ConsoleColor.White;
 
             Console.Clear();
 
@@ -36,43 +36,141 @@ namespace Ode_OS
             Console.WriteLine(" ");
             Console.WriteLine("|------------------------------------------------------------------------------|");
             Console.WriteLine(" ");
-            Console.Write("Votre nom : ");
-            var name = Console.ReadLine();
-            Console.WriteLine("Bienvenue " + name + " !");
 
 
         }
         bool running = true;
+
 
         public CosmosVFS FS { get; private set; }
 
         protected override void Run()
 
         {
-
-            while (running)
+            goto name;
+            name:
             {
+                Console.WriteLine("Entrez votre pseudo et mot de passe :");
+                Console.Write("Votre nom : ");
+                string name = Console.ReadLine();
+                Console.Write("Votre mot de passe : ");
+                string pass = Console.ReadLine();
+            //    var fileexist = File.Exists("0:\\System1\\install.txt");
 
-                Console.Write(current_directory + "> ");
-                string input = Console.ReadLine();
-                InterpretCMD(input);
+               // if (fileexist ==true)
+                //{
+                    Console.WriteLine("OdeOS est deja installe !");
+                    //var userfile = File.ReadAllText("0:\\System\\user.txt");
+                    
 
+               // }
+             //   else
+              //  {
+                    Console.Write("Voulez vous installer OdeOS ? ( o ou n ) ");
+                    string installinput = Console.ReadLine();
+                    if (installinput == "o")
+                    {
+                        Console.WriteLine("Installation en cours...");
+
+                        Console.WriteLine("Creation des dossiers...");
+                        FS.CreateDirectory("0:\\System1");
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine("[OK]");
+                        Console.ForegroundColor = ConsoleColor.White;
+
+                        Console.WriteLine("Creation des fichiers...");
+                        var f = File.Create("0:\\System1\\user.txt");
+                        f.Close();
+                        var g = File.Create("0:\\System1\\install.txt");
+                        g.Close();
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine("[OK]");
+                        Console.ForegroundColor = ConsoleColor.White;
+
+                        Console.WriteLine("Ecriture des fichiers...");
+                        File.WriteAllText("0:\\System1\\user.txt", name + "\n" + pass);
+                        File.WriteAllText("0:\\System1\\install.txt", "1");
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine("[OK]");
+                        Console.WriteLine("L'installation s'est deroulee avec succes !");
+                        Console.ForegroundColor = ConsoleColor.White;
+                        goto main;
+
+                    }
+                    else if (installinput == "n")
+                    {
+                        goto main;
+
+                    }
+           //     }
+
+
+
+
+                //Console.WriteLine("Bienvenue " + name + " !");
+                //goto main;
             }
+            main:
+            {
+                while (running)
+                {
+
+                    Console.ForegroundColor = ConsoleColor.White;
+
+
+                    Console.Write("@odeos:" + current_directory + "> ");
+                    //valen@odeos>
+                    string input = Console.ReadLine();
+                    InterpretCMD(input);
+
+
+                }
+            }
+
+
+
         }
 
         private void InterpretCMD(string input)
         {
             string[] args = input.Split(' ');
+
             if (input.StartsWith("shutdown"))
             {
                 Console.Clear();
                 Console.WriteLine("Le systeme est pret a s'arreter");
                 running = false;
+                Console.Write("Confirmez vous la mise hors tension du systeme ? (o ou n) ");
+                string shutinput = Console.ReadLine();
+                if (shutinput == "o")
+                {
+                    this.Stop();
+
+                }
+                else
+                {
+                    running = true;
+                }
 
             }
+
             else if (input.StartsWith("reboot"))
             {
-                Sys.Power.Reboot();
+
+                Console.Clear();
+                Console.WriteLine("Le systeme est pret a redemarrer");
+                running = false;
+                Console.Write("Confirmez vous le redemarrage du systeme ? (o ou n) ");
+                string shutinput = Console.ReadLine();
+                if (shutinput == "o")
+                {
+                    Sys.Power.Reboot();
+
+                }
+                else
+                {
+                    running = true;
+                }
             }
             else if (input.StartsWith("echo "))
             {
@@ -85,7 +183,7 @@ namespace Ode_OS
                     Console.WriteLine("echo: " + ex.Message);
                 }
             }
-            else if (input.StartsWith("lsvol"))
+            else if (input.StartsWith("vol -l"))
             {
                 var vols = FS.GetVolumes();
                 Console.WriteLine("Nom\tTaille\tParent");
@@ -94,18 +192,19 @@ namespace Ode_OS
                     Console.WriteLine(vol.mName + "\t" + vol.mSize + "\t" + vol.mParent);
                 }
             }
-            else if (input.StartsWith("print "))
+            else if (input.StartsWith("fil -p "))
             {
-                string file = input.Remove(0, 6);
+                string file = input.Remove(0, 7);
 
                 {
-                    if (File.Exists("0:\\" + file))
+                    Directory.SetCurrentDirectory(current_directory);
+                    if (File.Exists(current_directory + file))
                     {
-                        Console.WriteLine(File.ReadAllText("0:\\" + file));
+                        Console.WriteLine(File.ReadAllText(current_directory + file));
                     }
                     else
                     {
-                        Console.WriteLine("print : Ce fichier n'existe pas");
+                        Console.WriteLine("Le fichier '" + file + "' n'existe pas !");
                     }
                 }
 
@@ -121,13 +220,54 @@ namespace Ode_OS
                 {
                     Console.WriteLine("<Fichier>\t" + dir);
                 }
+
             }
-            else if (input.StartsWith("test_write"))
+            //else if (input.StartsWith("dir -r System1"))
+           // {
+            //    Console.WriteLine("Impossible de supprimer les fichiers systeme");
+          //  }
+            else if (input.StartsWith("dir -r "))
             {
-                var file = FS.CreateFile(current_directory + "test.txt");
-                //File.WriteAllText(current_directory + "test.txt", "Test!");
+                string dirr = input.Remove(0, 7);
+
+
+                if (Directory.Exists(current_directory + dirr))
+                {
+                    Directory.Delete(current_directory + dirr);
+                    Console.WriteLine("Le dossier '" + dirr + "' a ete supprime !");
+                }
+                else
+                {
+                    Console.WriteLine("Le dossier '" + dirr + "' n'existe pas !");
+                }
+
+            }
+            else if (input.StartsWith("fil -c "))
+            {
+                string filec = input.Remove(0, 7);
+                var f = File.Create(current_directory + filec);
+                f.Close();
+                Console.WriteLine("Contenu du fichier (appuyez sur entrer pour enregistrer et entrez \n pour faire un retour de a la ligne) :");
+                string fileccontenu = Console.ReadLine();
+                File.WriteAllText(current_directory + filec, fileccontenu);
                 Console.WriteLine("Fichier cree !");
             }
+            else if (input.StartsWith("fil -r "))
+            {
+                string filer = input.Remove(0, 7);
+                if (File.Exists(current_directory + filer))
+                {
+                    File.Delete(current_directory + filer);
+                    Console.WriteLine("'" + filer + "' a ete supprime !");
+                }
+                else
+                {
+                    Console.WriteLine("Le fichier '" + filer + "' n'existe pas !");
+                }
+
+
+            }
+
             else if (input.StartsWith("dir -c "))
             {
                 string dir = input.Remove(0, 7);
@@ -137,25 +277,50 @@ namespace Ode_OS
                     Console.WriteLine("Dossier cree !");
                 }
             }
+
+            else if (input.StartsWith("cd .."))
+            {
+                try
+                {
+                    Directory.SetCurrentDirectory(current_directory);
+                    var dir = FS.GetDirectory(current_directory);
+
+                    current_directory = dir.mParent.mFullPath;
+                }
+                catch
+                {
+                    Console.WriteLine("Impossible d'entrer dans la matrice !");
+                }
+
+            }
+           // else if (input.StartsWith("cd System1"))
+           // {
+           //      Console.WriteLine("Impossible d'acceder au fichiers systeme");
+            //}
+            
             else if (input.StartsWith("cd "))
             {
                 var newdir = input.Remove(0, 3);
-                if (FS.GetDirectory(current_directory + newdir) != null)
+                //if (FS.GetDirectory(current_directory + newdir) != null)
+                //{
+                //    current_directory = current_directory + newdir + "\\";
+                //}
+
+                if (Directory.Exists(current_directory + newdir))
                 {
+                    Directory.SetCurrentDirectory(current_directory);
                     current_directory = current_directory + newdir + "\\";
                 }
                 else
                 {
-                    if (newdir == "..")
-                    {
-                        var dir = FS.GetDirectory(current_directory);
-                        string p = dir.mParent.mName;
-                        Console.WriteLine(p);
-                    }
+                    Console.WriteLine("Ce dossier n'existe pas !");
                 }
             }
+
+
             else if (input.StartsWith("clear"))
             {
+                Directory.SetCurrentDirectory(current_directory);
                 Console.Clear();
             }
             else if (input.StartsWith("help"))
@@ -164,16 +329,31 @@ namespace Ode_OS
                 Console.WriteLine("shutdown       : permet d'eteindre Ode OS");
                 Console.WriteLine("reboot         : permet de redemarrer Ode OS");
                 Console.WriteLine("echo           : permet de renvoyer le texte ecrit");
-                Console.WriteLine("lsvol          : permet d'afficher les volumes disponibles");
+                Console.WriteLine("vol -l         : permet d'afficher les volumes disponibles");
                 Console.WriteLine("dir -l         : permet d'afficher les fichiers et dossiers");
                 Console.WriteLine("dir -c         : permet de creer un dossier");
-                Console.WriteLine("print -fichier : permet d'afficher le contenu d'un fichier");
-                Console.WriteLine("test_write     : permet de creer un fichier test");
+                Console.WriteLine("dir -r         : permet de supprimer un dossier");
+                Console.WriteLine("fil -c         : permet de creer un fichier");
+                Console.WriteLine("fil -r         : permet de supprimer un fichier");
+                Console.WriteLine("fil -p         : permet d'afficher le contenu d'un fichier");
                 Console.WriteLine("cd             : se deplacer de dossier en dossier");
                 Console.WriteLine("clear          : permet de nettoyer la console");
             }
+
+            else if (input.StartsWith("load prgm"))
+            {
+
+                Console.Clear();
+                Console.WriteLine("Le premier programme 0.1");
+                Console.WriteLine("Entrez du texte :");
+                input = Console.ReadLine();
+                Console.WriteLine("Vous avez ecrit '" + input + "'");
+                Console.WriteLine("Appuyez sur une touche pour quitter le programme");
+                Console.ReadKey(true);
+            }
             else
             {
+                Console.ForegroundColor = ConsoleColor.DarkRed;
                 Console.WriteLine("Commande inconnue, essayez la commande help");
             }
         }
