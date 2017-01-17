@@ -13,3 +13,11 @@ c:\users\valen\documents\visual studio 2015\Projects\Ode OS\Ode OS\bin\Debug\Cos
 c:\users\valen\documents\visual studio 2015\Projects\Ode OS\Ode OS\obj\x86\Debug\Ode OS.csprojResolveAssemblyReference.cache
 c:\users\valen\documents\visual studio 2015\Projects\Ode OS\Ode OS\obj\x86\Debug\Ode OS.dll
 c:\users\valen\documents\visual studio 2015\Projects\Ode OS\Ode OS\obj\x86\Debug\Ode OS.pdb
+C:\Users\valen\Documents\Visual Studio 2015\Projects\Ode OS\Ode OS\bin\Debug\Cosmos.Core.Memory.dll
+C:\Users\valen\Documents\Visual Studio 2015\Projects\Ode OS\Ode OS\bin\Debug\Cosmos.Core.Plugs.dll
+C:\Users\valen\Documents\Visual Studio 2015\Projects\Ode OS\Ode OS\bin\Debug\Cosmos.System.Plugs.dll
+C:\Users\valen\Documents\Visual Studio 2015\Projects\Ode OS\Ode OS\bin\Debug\Cosmos.Core.Memory.pdb
+C:\Users\valen\Documents\Visual Studio 2015\Projects\Ode OS\Ode OS\bin\Debug\Cosmos.Core.Plugs.pdb
+C:\Users\valen\Documents\Visual Studio 2015\Projects\Ode OS\Ode OS\bin\Debug\Cosmos.System.Plugs.pdb
+C:\Users\valen\Documents\Visual Studio 2015\Projects\Ode OS\Ode OS\bin\Debug\Ode_OS_SystemRing.dll
+C:\Users\valen\Documents\Visual Studio 2015\Projects\Ode OS\Ode OS\bin\Debug\Ode_OS_SystemRing.pdb

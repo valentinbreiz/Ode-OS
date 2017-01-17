@@ -4,11 +4,20 @@ using System.Text;
 using Sys = Cosmos.System;
 using System.IO;
 using Cosmos.System.FileSystem;
+using System.Drawing;
+using Ode_OS_SystemRing;
+using static Ode_OS_SystemRing.SystemHelpers;
+using Cosmos.Core.IOGroup.Network;
+using Cosmos.System.Network.IPv4;
+using Cosmos.System.Network;
 
-namespace CosmosKernel1
+namespace Ode_OS
 {
     public class Kernel : Sys.Kernel
     {
+
+        
+
         string version = "0.0.1";
         string current_directory = "0:\\";
         protected override void BeforeRun()
@@ -38,11 +47,13 @@ namespace CosmosKernel1
             Console.WriteLine(" ");
 
 
+
         }
         bool running = true;
 
 
         public CosmosVFS FS { get; private set; }
+        public Sys.Network.UdpClient sckt { get; private set; }
 
         protected override void Run()
 
@@ -121,6 +132,7 @@ namespace CosmosKernel1
                     Console.Write("@odeos:" + current_directory + "> ");
                     //valen@odeos>
                     string input = Console.ReadLine();
+                    input = input.Replace("/", "\\");
                     InterpretCMD(input);
 
 
@@ -131,11 +143,54 @@ namespace CosmosKernel1
 
         }
 
+        public const string sad_monitor = @"
+ ____________
+|            |      ______________________________________________
+|  ()    ()  |     /                                              \
+|   ______   | ---|  Looks like an error occurred... Now I'm sad.  |
+| /        \ |     \______________________________________________/
+|____________|"; //Memphis is sad because it encountered an error. It's gonna go hide in a corner. ):
+
+        public void StopKernel(Exception ex)
+        {
+            //PlayErrorSound(); Dang. This doesn't seem to work...
+            running = false;
+            Console.BackgroundColor = ConsoleColor.Red;
+            Console.Clear();
+            Console.WriteLine(sad_monitor);
+            string ex_message = ex.Message;
+            string inner_message = "<none>";
+            if (ex.InnerException != null)
+                inner_message = ex.InnerException.Message;
+            Console.WriteLine($@"Error message: {ex_message}
+Inner exception message: {inner_message}");
+            Console.WriteLine("Press any key to reboot.");
+            try
+            {
+                Console.ReadKey();
+            }
+            catch
+            {
+
+            }
+            Sys.Power.Reboot();
+        }
+
+        public void PlayErrorSound()
+        {
+            for (int i = 500; i > 450; i--)
+            {
+                Beep(i, 100);
+            }
+            Beep(440, 10);
+        }
+
+
         private void InterpretCMD(string input)
         {
             string[] args = input.Split(' ');
 
-            if (input.StartsWith("shutdown"))
+            if (input == "shutdown")
             {
                 Console.Clear();
                 Console.WriteLine("Le systeme est pret a s'arreter");
@@ -147,6 +202,10 @@ namespace CosmosKernel1
                     this.Stop();
 
                 }
+                else if (shutinput == "n")
+                {
+                    running = true;
+                }
                 else
                 {
                     running = true;
@@ -154,7 +213,7 @@ namespace CosmosKernel1
 
             }
 
-            else if (input.StartsWith("reboot"))
+            else if (input == "reboot")
             {
 
                 Console.Clear();
@@ -166,6 +225,10 @@ namespace CosmosKernel1
                 {
                     Sys.Power.Reboot();
 
+                }
+                else if (shutinput == "n")
+                {
+                    running = true;
                 }
                 else
                 {
@@ -183,7 +246,15 @@ namespace CosmosKernel1
                     Console.WriteLine("echo: " + ex.Message);
                 }
             }
-            else if (input.StartsWith("vol -l"))
+            else if (input == "infos")
+            {
+                Console.WriteLine($@"Informations systemes :
+- Nombre de partitions : {Sys.FileSystem.VFS.VFSManager.GetVolumes().Count}
+- La date actuelle est : {SystemInfo.Time.ToString()}");
+                Console.WriteLine("- Propulse par CosmosOS et ecrit en C#");
+                Console.WriteLine("- Ode OS v" + version + " - fait par valentinbreiz");
+            }
+            else if (input == "vol -l")
             {
                 var vols = FS.GetVolumes();
                 Console.WriteLine("Nom\tTaille\tParent");
@@ -209,7 +280,7 @@ namespace CosmosKernel1
                 }
 
             }
-            else if (input.StartsWith("dir -l"))
+            else if (input == "dir -l")
             {
                 Console.WriteLine("Type\t     Nom");
                 foreach (var dir in Directory.GetDirectories(current_directory))
@@ -247,10 +318,11 @@ namespace CosmosKernel1
                 string filec = input.Remove(0, 7);
                 var f = File.Create(current_directory + filec);
                 f.Close();
-                Console.WriteLine("Contenu du fichier (appuyez sur entrer pour enregistrer et entrez \n pour faire un retour de a la ligne) :");
+                Console.WriteLine("Editeur de texte 0.1 ('entrer' pour enregistrer et '/n' pour retour a la ligne) :");
                 string fileccontenu = Console.ReadLine();
+                fileccontenu = fileccontenu.Replace("/n", "\n");
                 File.WriteAllText(current_directory + filec, fileccontenu);
-                Console.WriteLine("Fichier cree !");
+                Console.WriteLine("'" + filec + "'a ete cree !");
             }
             else if (input.StartsWith("fil -r "))
             {
@@ -278,33 +350,28 @@ namespace CosmosKernel1
                 }
             }
 
-            else if (input.StartsWith("cd .."))
+            else if (input == "cd ..")
             {
-                try
-                {
+
                     Directory.SetCurrentDirectory(current_directory);
                     var dir = FS.GetDirectory(current_directory);
-
+                    if (current_directory == "0:\\")
+                    {
+                    Console.ForegroundColor = ConsoleColor.DarkRed;
+                    Console.WriteLine("Impossible d'entrer dans la matrice !");
+                    
+                    }
+                    else
+                    {
                     current_directory = dir.mParent.mFullPath;
                 }
-                catch
-                {
-                    Console.WriteLine("Impossible d'entrer dans la matrice !");
-                }
+
 
             }
-           // else if (input.StartsWith("cd System1"))
-           // {
-           //      Console.WriteLine("Impossible d'acceder au fichiers systeme");
-            //}
             
             else if (input.StartsWith("cd "))
             {
                 var newdir = input.Remove(0, 3);
-                //if (FS.GetDirectory(current_directory + newdir) != null)
-                //{
-                //    current_directory = current_directory + newdir + "\\";
-                //}
 
                 if (Directory.Exists(current_directory + newdir))
                 {
@@ -318,12 +385,12 @@ namespace CosmosKernel1
             }
 
 
-            else if (input.StartsWith("clear"))
+            else if (input =="clear")
             {
                 Directory.SetCurrentDirectory(current_directory);
                 Console.Clear();
             }
-            else if (input.StartsWith("help"))
+            else if (input == "help")
             {
                 Console.WriteLine("Commandes disponibles :");
                 Console.WriteLine("shutdown       : permet d'eteindre Ode OS");
@@ -338,9 +405,10 @@ namespace CosmosKernel1
                 Console.WriteLine("fil -p         : permet d'afficher le contenu d'un fichier");
                 Console.WriteLine("cd             : se deplacer de dossier en dossier");
                 Console.WriteLine("clear          : permet de nettoyer la console");
+                Console.WriteLine("infos          : permet d'afficher des informations systeme");
             }
 
-            else if (input.StartsWith("load prgm"))
+            else if (input == "test_prgm")
             {
 
                 Console.Clear();
@@ -351,6 +419,41 @@ namespace CosmosKernel1
                 Console.WriteLine("Appuyez sur une touche pour quitter le programme");
                 Console.ReadKey(true);
             }
+            else if (input == "test_crash")
+            {
+                throw new Exception("Crash test.");
+            }
+            else if (input == "test_win")
+            {
+                var w = new TUI.BlankWindow("Valentin Charbonnier", 22, 10, 2, 2);
+                Console.CursorLeft = 0;
+                Console.CursorTop = 0;
+                Console.BackgroundColor = ConsoleColor.Black;
+                var b1 = new TUI.Button("Impressionant", 2, 2, 10, 1, w);
+                var b2 = new TUI.Button("Super", 2, 4, 10, 1, w);
+                var w2 = new TUI.BlankWindow("Une autre fenetre", 32, 20, w.X + w.Width + 3, w.Y);
+
+            }
+            else if (input == "test_mouse")
+            {
+                var m = new Mouse();
+
+    }
+
+            else if (input == "test_socket")
+            {
+                sckt = new UdpClient();
+                //Console.Write("Adresse : ");
+                //string adress = Console.ReadLine();
+                //IPAddress localAddress = IPAddress.Parse(adress);
+                //IPEndPoint ipEndpoint = new IPEndPoint(localAddress, 5842);
+                sckt.Connect(new Address (192, 168, 1, 25), 5842);
+                sckt.Send(new byte[] { 1 });
+
+                sckt.Close();
+            }
+
+
             else
             {
                 Console.ForegroundColor = ConsoleColor.DarkRed;

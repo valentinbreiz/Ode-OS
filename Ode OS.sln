@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ode OS", "Ode OS\Ode OS.csp
 EndProject
 Project("{471EC4BB-E47E-4229-A789-D1F5F83B52D4}") = "Ode OSBoot", "Ode OS\Ode OSBoot.Cosmos", "{51A735D3-9CC0-42F1-BD3F-17297FEA2A6D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ode_OS_HardwareRing", "Ode_OS_HardwareRing\Ode_OS_HardwareRing.csproj", "{29A99907-1E5F-4B98-BD83-185082534228}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ode_OS_SystemRing", "Ode_OS_SystemRing\Ode_OS_SystemRing.csproj", "{0C7488B1-AEAD-45D5-B76B-95127422BF4B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -21,6 +25,14 @@ Global
 		{51A735D3-9CC0-42F1-BD3F-17297FEA2A6D}.Debug|x86.Build.0 = Debug|x86
 		{51A735D3-9CC0-42F1-BD3F-17297FEA2A6D}.Release|x86.ActiveCfg = Debug|x86
 		{51A735D3-9CC0-42F1-BD3F-17297FEA2A6D}.Release|x86.Build.0 = Debug|x86
+		{29A99907-1E5F-4B98-BD83-185082534228}.Debug|x86.ActiveCfg = Debug|x86
+		{29A99907-1E5F-4B98-BD83-185082534228}.Debug|x86.Build.0 = Debug|x86
+		{29A99907-1E5F-4B98-BD83-185082534228}.Release|x86.ActiveCfg = Release|x86
+		{29A99907-1E5F-4B98-BD83-185082534228}.Release|x86.Build.0 = Release|x86
+		{0C7488B1-AEAD-45D5-B76B-95127422BF4B}.Debug|x86.ActiveCfg = Debug|x86
+		{0C7488B1-AEAD-45D5-B76B-95127422BF4B}.Debug|x86.Build.0 = Debug|x86
+		{0C7488B1-AEAD-45D5-B76B-95127422BF4B}.Release|x86.ActiveCfg = Release|x86
+		{0C7488B1-AEAD-45D5-B76B-95127422BF4B}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

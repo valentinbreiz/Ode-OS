@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{95C49A21-79DE-4E08-8DBD-D5FC93D1A48D}</ProjectGuid>
+    <ProjectGuid>{0C7488B1-AEAD-45D5-B76B-95127422BF4B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Ode_OS</RootNamespace>
-    <AssemblyName>Ode OS</AssemblyName>
+    <RootNamespace>Ode_OS_SystemRing</RootNamespace>
+    <AssemblyName>Ode_OS_SystemRing</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <TargetFrameworkProfile />
@@ -33,8 +33,10 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Cosmos.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5ae71220097cb983, processorArchitecture=MSIL" />
     <Reference Include="Cosmos.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5ae71220097cb983, processorArchitecture=MSIL" />
     <Reference Include="Cosmos.Core.Plugs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5ae71220097cb983, processorArchitecture=MSIL" />
+    <Reference Include="Cosmos.Debug.Kernel.Plugs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5ae71220097cb983, processorArchitecture=MSIL" />
     <Reference Include="Cosmos.HAL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5ae71220097cb983, processorArchitecture=MSIL" />
     <Reference Include="Cosmos.System.Plugs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5ae71220097cb983, processorArchitecture=MSIL" />
     <Reference Include="System" />
@@ -45,19 +47,19 @@
     <Reference Include="Cosmos.Debug.Kernel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5ae71220097cb983, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Kernel.cs" />
     <Compile Include="AssemblyInfo.cs" />
-    <Compile Include="TUI\BlankWindow.cs" />
-    <Compile Include="TUI\Button.cs" />
-    <Compile Include="TUI\input.cs" />
-    <Compile Include="TUI\MessageWindow.cs" />
-    <Compile Include="TUI\Utils.cs" />
-    <Compile Include="TUI\Window.cs" />
+    <Compile Include="Mouse.cs" />
+    <Compile Include="Plugs\EventImpl.cs" />
+    <Compile Include="SystemInfo.cs" />
+    <Compile Include="VBEGraphics.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Ode_OS_SystemRing\Ode_OS_SystemRing.csproj">
-      <Project>{0c7488b1-aead-45d5-b76b-95127422bf4b}</Project>
-      <Name>Ode_OS_SystemRing</Name>
+    <Folder Include="il2cpu\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Ode_OS_HardwareRing\Ode_OS_HardwareRing.csproj">
+      <Project>{29a99907-1e5f-4b98-bd83-185082534228}</Project>
+      <Name>Ode_OS_HardwareRing</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
