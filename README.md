@@ -1,4 +1,4 @@
-# Ode OS version 0.0.1
+# Ode OS version 0.0.2
 
 Ode OS est un OS réalisé avec Cosmos !
 
