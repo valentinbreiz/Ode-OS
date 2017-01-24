@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ode OS", "Ode OS\Ode OS.csproj", "{95C49A21-79DE-4E08-8DBD-D5FC93D1A48D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ode OS", "Ode OS\Ode OS.csproj", "{285AD3BE-9F0F-4182-8A59-8731FBD4CCE1}"
 EndProject
-Project("{471EC4BB-E47E-4229-A789-D1F5F83B52D4}") = "Ode OSBoot", "Ode OS\Ode OSBoot.Cosmos", "{51A735D3-9CC0-42F1-BD3F-17297FEA2A6D}"
+Project("{471EC4BB-E47E-4229-A789-D1F5F83B52D4}") = "Ode OSBoot", "Ode OS\Ode OSBoot.Cosmos", "{2E47EB83-0C0A-40BE-965B-2351EF99337A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,14 +13,14 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{95C49A21-79DE-4E08-8DBD-D5FC93D1A48D}.Debug|x86.ActiveCfg = Debug|x86
-		{95C49A21-79DE-4E08-8DBD-D5FC93D1A48D}.Debug|x86.Build.0 = Debug|x86
-		{95C49A21-79DE-4E08-8DBD-D5FC93D1A48D}.Release|x86.ActiveCfg = Release|x86
-		{95C49A21-79DE-4E08-8DBD-D5FC93D1A48D}.Release|x86.Build.0 = Release|x86
-		{51A735D3-9CC0-42F1-BD3F-17297FEA2A6D}.Debug|x86.ActiveCfg = Debug|x86
-		{51A735D3-9CC0-42F1-BD3F-17297FEA2A6D}.Debug|x86.Build.0 = Debug|x86
-		{51A735D3-9CC0-42F1-BD3F-17297FEA2A6D}.Release|x86.ActiveCfg = Debug|x86
-		{51A735D3-9CC0-42F1-BD3F-17297FEA2A6D}.Release|x86.Build.0 = Debug|x86
+		{285AD3BE-9F0F-4182-8A59-8731FBD4CCE1}.Debug|x86.ActiveCfg = Debug|x86
+		{285AD3BE-9F0F-4182-8A59-8731FBD4CCE1}.Debug|x86.Build.0 = Debug|x86
+		{285AD3BE-9F0F-4182-8A59-8731FBD4CCE1}.Release|x86.ActiveCfg = Release|x86
+		{285AD3BE-9F0F-4182-8A59-8731FBD4CCE1}.Release|x86.Build.0 = Release|x86
+		{2E47EB83-0C0A-40BE-965B-2351EF99337A}.Debug|x86.ActiveCfg = Debug|x86
+		{2E47EB83-0C0A-40BE-965B-2351EF99337A}.Debug|x86.Build.0 = Debug|x86
+		{2E47EB83-0C0A-40BE-965B-2351EF99337A}.Release|x86.ActiveCfg = Debug|x86
+		{2E47EB83-0C0A-40BE-965B-2351EF99337A}.Release|x86.Build.0 = Debug|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
