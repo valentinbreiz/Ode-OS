@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Ode_OS.Apps
 {
-    class CAppTEST
+    class PrgmTest
     {
-        public void AppTEST()
+        public void MainProgram()
         {
             Console.Clear();
             Console.WriteLine("Le premier programme 0.1");

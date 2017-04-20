@@ -9,7 +9,7 @@ using Ode_OS.Apps;
 
 #endregion
 
-namespace Ode_OS
+namespace CosmosKernel2
 {
     public class Kernel : Sys.Kernel
     {
@@ -39,78 +39,76 @@ namespace Ode_OS
 
         #endregion
 
-        #region BR
+        #region BeforeRun & Run
         protected override void BeforeRun()
         {
-
-
             try
             {
-                Console.WriteLine("Initialisation clavier FR...");
-                Sys.KeyboardManager.SetKeyLayout(new Sys.ScanMaps.FR_Standard());
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("[OK]");
-                Console.ForegroundColor = ConsoleColor.White;
-            }
-            catch
-            {
-                Console.ForegroundColor = ConsoleColor.DarkRed;
-                Console.WriteLine("[Erreur]");
-                Console.ForegroundColor = ConsoleColor.White;
-                Console.ReadKey();
-            }
 
-            try
-            {
-                Console.WriteLine("Initialisation du systeme de fichier...");
-                FS = new CosmosVFS();
-                FS.Initialize();
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("[OK]");
-                Console.ForegroundColor = ConsoleColor.White;
+                try
+                {
+                    Console.WriteLine("Initialisation clavier FR...");
+                    Sys.KeyboardManager.SetKeyLayout(new Sys.ScanMaps.FR_Standard());
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("[OK]");
+                    Console.ForegroundColor = ConsoleColor.White;
+                }
+                catch
+                {
+                    Console.ForegroundColor = ConsoleColor.DarkRed;
+                    Console.WriteLine("[Erreur]");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.ReadKey();
+                }
+                try
+                {
+                    Console.WriteLine("Initialisation du systeme de fichier...");
+                    FS = new CosmosVFS();
+                    FS.Initialize();
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("[OK]");
+                    Console.ForegroundColor = ConsoleColor.White;
+                }
+                catch
+                {
+                    Console.ForegroundColor = ConsoleColor.DarkRed;
+                    Console.WriteLine("[Erreur]");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.ReadKey();
+                }
+                try
+                {
+                    Console.WriteLine("Scan du systeme de fichiers...");
+                    Sys.FileSystem.VFS.VFSManager.RegisterVFS(FS);
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("[OK]");
+                    Console.ForegroundColor = ConsoleColor.White;
+                }
+                catch
+                {
+                    Console.ForegroundColor = ConsoleColor.DarkRed;
+                    Console.WriteLine("[Erreur]");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.ReadKey();
+                }
+                try
+                {
+                    Console.WriteLine("Le Kernel a correctement demarre !");
+                }
+                catch
+                {
+                    Console.ForegroundColor = ConsoleColor.DarkRed;
+                    Console.WriteLine("[Erreur]");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.ReadKey();
+                }
+                Console.Clear();
+                OdeOSlogo();
             }
-            catch
+            catch (Exception ex)
             {
-                Console.ForegroundColor = ConsoleColor.DarkRed;
-                Console.WriteLine("[Erreur]");
-                Console.ForegroundColor = ConsoleColor.White;
-                Console.ReadKey();
+                StopKernel(ex);
             }
-
-            try
-            {
-                Console.WriteLine("Scan du systeme de fichiers...");
-                Sys.FileSystem.VFS.VFSManager.RegisterVFS(FS);
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("[OK]");
-                Console.ForegroundColor = ConsoleColor.White;
-            }
-            catch
-            {
-                Console.ForegroundColor = ConsoleColor.DarkRed;
-                Console.WriteLine("[Erreur]");
-                Console.ForegroundColor = ConsoleColor.White;
-                Console.ReadKey();
-            }
-
-            try
-            {
-                PrintDebug("Le Kernel a correctement demarré !");
-                Console.ForegroundColor = ConsoleColor.White;
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("[OK]");
-                Console.ForegroundColor = ConsoleColor.White;
-            }
-            catch
-            {
-                Console.ForegroundColor = ConsoleColor.DarkRed;
-                Console.WriteLine("[Erreur]");
-                Console.ForegroundColor = ConsoleColor.White;
-                Console.ReadKey();
-            }
-
-            Console.Clear();
-            OdeOSlogo();
 
         }
 
@@ -125,7 +123,7 @@ namespace Ode_OS
 
         {
             goto name;
-            name:
+        name:
             {
                 Console.WriteLine("Entrez votre pseudo et mot de passe");
                 Console.Write("Votre nom : ");
@@ -150,19 +148,7 @@ namespace Ode_OS
                         Console.ForegroundColor = ConsoleColor.DarkRed;
                         Console.WriteLine("Mot de passe ou nom d'utilisateur incorrect !");
                         Console.ForegroundColor = ConsoleColor.White;
-
-                        Console.Write("Acceder a OdeOS en invite ? ( o ou n ) ");
-                        string installinput = Console.ReadLine();
-                        if (installinput == "o")
-                        {
-                            Console.Clear();
-                            goto main;
-
-                        }
-                        else
-                        {
-                            goto name;
-                        }
+                        goto name;
 
                     }
 
@@ -184,9 +170,7 @@ namespace Ode_OS
 
                         Console.WriteLine("Creation des fichiers...");
                         var f = File.Create("0:\\System\\user.txt");
-                        f.Close();
                         var g = File.Create("0:\\System\\pass.txt");
-                        g.Close();
                         Console.ForegroundColor = ConsoleColor.Green;
                         Console.WriteLine("[OK]");
                         Console.ForegroundColor = ConsoleColor.White;
@@ -196,6 +180,7 @@ namespace Ode_OS
                         File.WriteAllText("0:\\System\\pass.txt", pass);
                         Console.ForegroundColor = ConsoleColor.Green;
                         Console.WriteLine("[OK]");
+
                         Console.WriteLine("L'installation s'est deroulee avec succes !");
                         Console.ForegroundColor = ConsoleColor.White;
                         Console.WriteLine("Appuyez sur une touche pour acceder a OdeOS");
@@ -217,7 +202,7 @@ namespace Ode_OS
 
 
             }
-            main:
+        main:
             {
                 while (running)
                 {
@@ -230,7 +215,7 @@ namespace Ode_OS
                         Console.SetCursorPosition(0, 0);
                         Console.ForegroundColor = ConsoleColor.White;
                         Console.BackgroundColor = ConsoleColor.Blue;
-                        Console.WriteLine("                                                                   OdeOS v" + version);
+                        Console.WriteLine("valentinbreiz.github.io                                            OdeOS v" + version);
                         Console.BackgroundColor = ConsoleColor.Black;
                         Console.WriteLine(" ");
                         Console.SetCursorPosition(x, y);
@@ -372,7 +357,7 @@ Message d'exception : {inner_message}");
             {
                 Console.WriteLine($@"Informations systemes :
 - Nombre de partitions : {Sys.FileSystem.VFS.VFSManager.GetVolumes().Count}
-- La date actuelle est : test");
+- La date actuelle est : Test");
                 Console.WriteLine("- Propulse par CosmosOS et ecrit en C#");
                 Console.WriteLine("- Ode OS v" + version + " - fait par valentinbreiz");
             }
@@ -415,6 +400,25 @@ Message d'exception : {inner_message}");
                 }
 
             }
+            else if (input == "tree")
+            {
+                Console.WriteLine("Type\t     Nom");
+                foreach (var dir in Directory.GetDirectories(current_directory))
+                {
+                    var indir = Directory.GetDirectories(dir);
+                    Console.WriteLine("<Dossier>\t" + dir);
+                    Console.WriteLine("<Dossier>\t" + indir);
+                }
+
+                foreach (var dir in Directory.GetFiles(current_directory))
+                {
+                    Console.WriteLine("<Fichier>\t" + dir);
+                }
+
+            }
+
+
+
             //else if (input.StartsWith("dir -r System1"))
             // {
             //    Console.WriteLine("Impossible de supprimer les fichiers systeme");
@@ -544,59 +548,43 @@ Message d'exception : {inner_message}");
                 Console.WriteLine("cd             : se deplacer de dossier en dossier");
                 Console.WriteLine("clear          : permet de nettoyer la console");
                 Console.WriteLine("infos          : permet d'afficher des informations systeme");
+                Console.WriteLine("prgm -l        : permet d'afficher une liste de tous les programmes");
+                Console.WriteLine("prgm -s        : permet de lancer un programme");
             }
 
             else if (input == "test_crash")
             {
                 throw new Exception("Crash test.");
             }
-            else if (input == "test_prgm")
+            else if (input.StartsWith("prgm -s "))
             {
-                CAppTEST app = new CAppTEST();
-                app.AppTEST();
+                string prgm = input.Remove(0, 8);
 
-            }
-            else if (input == "reset")
-            {
-                Console.Write("Voulez vous vraiment reinstaller les fichiers systemes ? ( o ou n ) ");
-                string resetinput = Console.ReadLine();
-                if (resetinput == "o")
+                if (prgm == "Test")
                 {
-                    bool system = Directory.Exists("0:\\System");
-
-                    if (system == true)
-                    {
-                        running = false;
-                        Console.WriteLine("Suppression en cours...");
-
-                        Console.WriteLine("Suppression des fichiers et dossiers ...");
-                        Directory.Delete("0:\\System", true);
-                        Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine("[OK]");
-                        Console.ForegroundColor = ConsoleColor.White;
-
-                        Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine("La suppression s'est deroulee avec succes !");
-                        Console.ForegroundColor = ConsoleColor.White;
-                        Console.WriteLine("Appuyez sur une touche pour eteindre Ode OS");
-                        Console.ReadKey();
-                        Stop();
-
-                    }
-                    else
-                    {
-                        Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine("Le systeme n'est pas installe !");
-                        Console.ForegroundColor = ConsoleColor.White;
-                    }
-
-
-
+                    PrgmTest app = new PrgmTest();
+                    app.MainProgram();
                 }
-
+                if (prgm == "Parametres")
+                {
+                    PgrmParametres app = new PgrmParametres();
+                    app.MainProgram();
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.DarkRed;
+                    Console.WriteLine("Ce programme n'existe pas !");
+                    Console.WriteLine("Essayez prgm -l pour voir la liste des programmes.");
+                    Console.ForegroundColor = ConsoleColor.White;
+                }
             }
 
-
+            else if (input == "prgm -l")
+            {
+                Console.WriteLine("Programmes disponibles :");
+                Console.WriteLine("- Parametres");
+                Console.WriteLine("- Test");
+            }
 
             else
             {
