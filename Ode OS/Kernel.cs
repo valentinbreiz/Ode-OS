@@ -6,6 +6,8 @@ using Cosmos.System.FileSystem;
 using Cosmos.System.Network.IPv4;
 using Cosmos.System.Network;
 using Ode_OS.Apps;
+using Ode_OS.System;
+using Ode_OS.System.assets;
 
 #endregion
 
@@ -13,29 +15,12 @@ namespace CosmosKernel2
 {
     public class Kernel : Sys.Kernel
     {
-        #region OdeOSlogo 
-
-        private void OdeOSlogo()
-        {
-            Console.WriteLine(" ");
-            Console.WriteLine("|------------------------------------------------------------------------------|");
-            Console.WriteLine(" _____   _____   _____        _____   _____");
-            Console.WriteLine("/  _    |  _    | ____|      /  _    /  ___/");
-            Console.WriteLine("| | | | | | | | | |__        | | | | | |___");
-            Console.WriteLine("| | | | | | | | |  __|       | | | |  ___   ");
-            Console.WriteLine("| |_| | | |_| | | |___       | |_| |  ___| |   version " + version);
-            Console.WriteLine(" _____/ |_____/ |_____|       _____/ /_____/   cree par valentinbreiz");
-            Console.WriteLine(" ");
-            Console.WriteLine("|------------------------------------------------------------------------------|");
-            Console.WriteLine(" ");
-        }
-
-        #endregion
 
         #region Global variables
 
         string version = "0.0.2";
         string current_directory = "0:\\";
+        
 
         #endregion
 
@@ -103,11 +88,12 @@ namespace CosmosKernel2
                     Console.ReadKey();
                 }
                 Console.Clear();
-                OdeOSlogo();
+                
             }
             catch (Exception ex)
             {
-                StopKernel(ex);
+                running = false;
+                crash.StopKernel(ex);
             }
 
         }
@@ -125,11 +111,56 @@ namespace CosmosKernel2
             goto name;
         name:
             {
-                Console.WriteLine("Entrez votre pseudo et mot de passe");
-                Console.Write("Votre nom : ");
+                logo.OdeOSlogo(version);
+
+                int x = Console.CursorLeft;
+                int y = Console.CursorTop;
+                Console.SetCursorPosition(19, 13);
+                Console.WriteLine("|---------------------------------------|");
+                Console.SetCursorPosition(x, y);
+
+                Console.SetCursorPosition(19, 14);
+                Console.WriteLine("|              -Connexion-              |");
+                Console.SetCursorPosition(x, y);
+
+                Console.SetCursorPosition(19, 15);
+                Console.WriteLine("|                                       |");
+                Console.SetCursorPosition(x, y);
+
+                Console.SetCursorPosition(19, 16);
+                Console.WriteLine("|Votre nom :                            |");
+                Console.SetCursorPosition(x, y);
+
+                Console.SetCursorPosition(19, 17);
+                Console.WriteLine("|Votre mot de passe :                   |");
+                Console.SetCursorPosition(x, y);
+
+                Console.SetCursorPosition(19, 18);
+                Console.WriteLine("|                                       |");
+                Console.SetCursorPosition(x, y);
+
+                Console.SetCursorPosition(19, 19);
+                Console.WriteLine("|              -Confirmer-              |");
+                Console.SetCursorPosition(x, y);
+
+                Console.SetCursorPosition(19, 20);
+                Console.WriteLine("|---------------------------------------|");
+                Console.SetCursorPosition(x, y);
+
+                Console.SetCursorPosition(19, 16);
+                Console.Write("|Votre nom : ");
                 string name = Console.ReadLine();
-                Console.Write("Votre mot de passe : ");
+                Console.SetCursorPosition(x, y);
+
+                Console.SetCursorPosition(19, 17);
+                Console.Write("|Votre mot de passe : ");
                 string pass = Console.ReadLine();
+                Console.SetCursorPosition(x, y);
+
+                Console.Clear();
+
+
+
                 bool systemexist = Directory.Exists("0:\\System");
 
                 if (systemexist == true)
@@ -138,6 +169,8 @@ namespace CosmosKernel2
                     var passfile = File.ReadAllText("0:\\System\\pass.txt");
                     if (name == userfile && pass == passfile)
                     {
+                        Console.Clear();
+                        logo.OdeOSlogo(version);
                         Console.ForegroundColor = ConsoleColor.Green;
                         Console.WriteLine("Bienvenue " + userfile + " !");
                         Console.ForegroundColor = ConsoleColor.White;
@@ -145,13 +178,135 @@ namespace CosmosKernel2
                     }
                     else
                     {
+                        Console.Clear();
+                        logo.OdeOSlogo(version);
+
+                        Console.SetCursorPosition(19, 13);
+                        Console.WriteLine("|---------------------------------------|");
+                        Console.SetCursorPosition(x, y);
+
+                        Console.SetCursorPosition(19, 14);
+                        Console.WriteLine("|              -Connexion-              |");
+                        Console.SetCursorPosition(x, y);
+
+                        Console.SetCursorPosition(19, 15);
+                        Console.WriteLine("|                                       |");
+                        Console.SetCursorPosition(x, y);
+
+                        Console.SetCursorPosition(19, 16);
+                        Console.WriteLine("|Votre nom :                            |");
+                        Console.SetCursorPosition(x, y);
+
+                        Console.SetCursorPosition(19, 17);
+                        Console.WriteLine("|Votre mot de passe :                   |");
+                        Console.SetCursorPosition(x, y);
+
+                        Console.SetCursorPosition(19, 18);
                         Console.ForegroundColor = ConsoleColor.DarkRed;
-                        Console.WriteLine("Mot de passe ou nom d'utilisateur incorrect !");
+                        Console.WriteLine("|         Mdp ou nom incorrect !        |");
                         Console.ForegroundColor = ConsoleColor.White;
-                        goto name;
+                        Console.SetCursorPosition(x, y);
 
+                        Console.SetCursorPosition(19, 19);
+                        Console.WriteLine("|         -Reset-          -Ok-         |");
+                        Console.SetCursorPosition(x, y);
+
+                        Console.SetCursorPosition(19, 20);
+                        Console.WriteLine("|---------------------------------------|");
+                        Console.SetCursorPosition(x, y);
+                        
+
+                        goto test;
+                    test:
+                        {
+                            ConsoleKeyInfo info = Console.ReadKey();
+                            if (info.Key == ConsoleKey.LeftArrow) //gauche
+                            {
+                                Console.SetCursorPosition(19, 19);
+                                Console.WriteLine("|        ||Reset||         -Ok-         |");
+                                Console.SetCursorPosition(x, y);
+                                ConsoleKeyInfo info1 = Console.ReadKey();
+                                if (info1.Key == ConsoleKey.Enter)
+                                {
+
+                                        Console.Clear();
+                                        bool system = Directory.Exists("0:\\System");
+
+                                        if (system == true)
+                                        {
+                                            running = false;
+                                            Console.WriteLine("Suppression en cours...");
+
+                                            try
+                                            {
+                                                Console.WriteLine("Suppression des fichiers et dossiers ...");
+                                                File.Delete(current_directory + "System\\user.txt");
+                                                File.Delete(current_directory + "System\\pass.txt");
+                                                Directory.Delete("0:\\System");
+                                                Console.ForegroundColor = ConsoleColor.Green;
+                                                Console.WriteLine("[OK]");
+                                                Console.ForegroundColor = ConsoleColor.White;
+
+                                                Console.ForegroundColor = ConsoleColor.Green;
+                                                Console.WriteLine("La suppression s'est deroulee avec succes !");
+                                                Console.ForegroundColor = ConsoleColor.White;
+                                                Console.WriteLine("Appuyez sur une touche pour redemarrer Ode OS");
+                                                Console.ReadKey();
+                                                Cosmos.System.Power.Reboot();
+                                            }
+                                            catch
+                                            {
+                                                Console.ForegroundColor = ConsoleColor.DarkRed;
+                                                Console.WriteLine("[Erreur]");
+                                                Console.ForegroundColor = ConsoleColor.White;
+                                                Console.ReadKey();
+                                                running = true;
+                                            }
+
+                                        }
+                                        else
+                                        {
+                                            Console.ForegroundColor = ConsoleColor.Green;
+                                            Console.WriteLine("Le systeme n'est pas installe !");
+                                            Console.ForegroundColor = ConsoleColor.White;
+                                        }
+                                    
+
+                                }
+                                else if (info1.Key == ConsoleKey.RightArrow)
+                                {
+                                    goto test;
+                                }
+                                else
+                                {
+                                    goto test;
+                                }
+
+                            }
+
+
+                            else if (info.Key == ConsoleKey.RightArrow) //droite
+                            {
+                                Console.SetCursorPosition(19, 19);
+                                Console.WriteLine("|         -Reset-         ||Ok||        |");
+                                Console.SetCursorPosition(x, y);
+                                ConsoleKeyInfo info1 = Console.ReadKey();
+                                if (info1.Key == ConsoleKey.Enter)
+                                {
+                                    Console.Clear();
+                                    goto name;
+                                }
+                                if (info1.Key == ConsoleKey.LeftArrow)
+                                {
+                                    goto test;
+                                }
+                                else
+                                {
+                                    goto test;
+                                }
+                            }
+                        }
                     }
-
                 }
                 else
                 {
@@ -162,40 +317,67 @@ namespace CosmosKernel2
                         running = false;
                         Console.WriteLine("Installation en cours...");
 
-                        Console.WriteLine("Creation des dossiers...");
+                        int xx = Console.CursorLeft;
+                        int yy = Console.CursorTop;
+
+                        Console.SetCursorPosition(0, 12);
+                        Console.WriteLine("*------------------------------------------------------------------------------*");
+                        Console.SetCursorPosition(xx, yy);
+
+                        Console.SetCursorPosition(0, 14);
+                        Console.WriteLine("*------------------------------------------------------------------------------*");
+                        Console.SetCursorPosition(xx, yy);
+
                         FS.CreateDirectory("0:\\System");
+                        Console.SetCursorPosition(0, 13);
                         Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine("[OK]");
+                        Console.WriteLine("###########################");
                         Console.ForegroundColor = ConsoleColor.White;
+                        Console.SetCursorPosition(xx, yy);
 
-                        Console.WriteLine("Creation des fichiers...");
                         var f = File.Create("0:\\System\\user.txt");
-                        var g = File.Create("0:\\System\\pass.txt");
+                        Console.SetCursorPosition(0, 13);
                         Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine("[OK]");
+                        Console.WriteLine("########################################");
                         Console.ForegroundColor = ConsoleColor.White;
+                        Console.SetCursorPosition(xx, yy);
 
-                        Console.WriteLine("Ecriture des fichiers...");
+                        var g = File.Create("0:\\System\\pass.txt");
+                        Console.SetCursorPosition(0, 13);
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine("######################################################");
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.SetCursorPosition(xx, yy);
+
                         File.WriteAllText("0:\\System\\user.txt", name);
                         File.WriteAllText("0:\\System\\pass.txt", pass);
+                        Console.SetCursorPosition(0, 13);
                         Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine("[OK]");
-
-                        Console.WriteLine("L'installation s'est deroulee avec succes !");
+                        Console.WriteLine("################################################################################");
                         Console.ForegroundColor = ConsoleColor.White;
-                        Console.WriteLine("Appuyez sur une touche pour acceder a OdeOS");
+                        Console.SetCursorPosition(xx, yy);
+
+                        Console.SetCursorPosition(0, 10);
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine("                  L'installation s'est deroulee avec succes !                   ");
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.SetCursorPosition(xx, yy);
+
+                        Console.SetCursorPosition(0, 11);
+                        Console.WriteLine("                  Appuyez sur une touche pour acceder a Ode OS                  ");
+                        Console.SetCursorPosition(xx, yy);
+
                         Console.ReadKey();
                         Console.Clear();
                         running = true;
                         goto main;
-
 
                     }
                     else if (installinput == "n")
                     {
 
                         Console.Clear();
-                        goto main;
+                        goto name;
 
                     }
                 }
@@ -245,7 +427,8 @@ namespace CosmosKernel2
                     }
                     catch (Exception ex)
                     {
-                        StopKernel(ex);
+                        running = false;
+                        crash.StopKernel(ex);
                     }
 
                 }
@@ -254,37 +437,6 @@ namespace CosmosKernel2
 
 
         }
-        #endregion
-
-        #region Exception
-
-        public void StopKernel(Exception ex)
-        {
-
-            running = false;
-            Console.BackgroundColor = ConsoleColor.DarkBlue;
-            Console.Clear();
-            Console.WriteLine("THE BLUE SCREEN OF DEATH 0.1");
-            Console.WriteLine("ERREUR SYSTEME");
-            string ex_message = ex.Message;
-            string inner_message = "<aucun>";
-            if (ex.InnerException != null)
-                inner_message = ex.InnerException.Message;
-            Console.WriteLine($@"Erreur : {ex_message}
-Message d'exception : {inner_message}");
-
-            Console.WriteLine("Appuyez sur une touche pour redemarrer");
-            try
-            {
-                Console.ReadKey();
-            }
-            catch
-            {
-
-            }
-            Sys.Power.Reboot();
-        }
-
         #endregion
 
         #region InterpetCMD
@@ -416,13 +568,12 @@ Message d'exception : {inner_message}");
                 }
 
             }
-
-
-
-            //else if (input.StartsWith("dir -r System1"))
-            // {
-            //    Console.WriteLine("Impossible de supprimer les fichiers systeme");
-            //  }
+            else if (input == "dir -r System")
+            {
+                Console.ForegroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine("Impossible de supprimer les fichiers systeme");
+                Console.ForegroundColor = ConsoleColor.White;
+            }
             else if (input.StartsWith("dir -r "))
             {
                 string dirr = input.Remove(0, 7);
@@ -471,7 +622,7 @@ Message d'exception : {inner_message}");
                 Console.WriteLine("Impossible de creer un dossier 'System'");
                 Console.ForegroundColor = ConsoleColor.White;
             }
-            else if (input == "dir -c system")
+            else if (input == "dir -c System")
             {
                 Console.ForegroundColor = ConsoleColor.DarkRed;
                 Console.WriteLine("Impossible de creer un dossier 'System'");
@@ -484,6 +635,12 @@ Message d'exception : {inner_message}");
                 {
                     FS.CreateDirectory(current_directory + dir);
                     Console.WriteLine("Dossier cree !");
+                }
+                else if (Directory.Exists(current_directory + dir))
+                {
+                    Console.WriteLine("Le dossier existe deja !");
+                    Console.WriteLine("Dossier cree !");
+                    FS.CreateDirectory(current_directory + dir + "-1");
                 }
             }
 
@@ -503,7 +660,13 @@ Message d'exception : {inner_message}");
                     current_directory = dir.mParent.mFullPath;
                 }
 
+            }
 
+            else if (input == "cd System")
+            {
+                Console.ForegroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine("Impossible d'acceder au dossier 'System'");
+                Console.ForegroundColor = ConsoleColor.White;
             }
 
             else if (input.StartsWith("cd "))
@@ -528,10 +691,7 @@ Message d'exception : {inner_message}");
                 Console.Clear();
                 Console.WriteLine("");
             }
-            else if (input == "test_ram")
-            {
 
-            }
             else if (input == "help")
             {
                 Console.WriteLine("Commandes disponibles :");
@@ -550,11 +710,18 @@ Message d'exception : {inner_message}");
                 Console.WriteLine("infos          : permet d'afficher des informations systeme");
                 Console.WriteLine("prgm -l        : permet d'afficher une liste de tous les programmes");
                 Console.WriteLine("prgm -s        : permet de lancer un programme");
+                Console.WriteLine("lock           : permet de verouiller Ode OS avec un mot de passe");
             }
 
             else if (input == "test_crash")
             {
                 throw new Exception("Crash test.");
+            }
+            else if (input == "test_window")
+            {
+                Console.Clear();
+                windows.Windows_password("            -Fenetre test-             ", "Texte :                                ", "Texte : ", "         ||Fermer la fenetre||         ");
+                
             }
             else if (input.StartsWith("prgm -s "))
             {
@@ -570,6 +737,10 @@ Message d'exception : {inner_message}");
                     PgrmParametres app = new PgrmParametres();
                     app.MainProgram();
                 }
+                if (prgm == "Microtxt")
+                {
+                    PgrmMicrotxt.init();
+                }
                 else
                 {
                     Console.ForegroundColor = ConsoleColor.DarkRed;
@@ -583,7 +754,14 @@ Message d'exception : {inner_message}");
             {
                 Console.WriteLine("Programmes disponibles :");
                 Console.WriteLine("- Parametres");
+                Console.WriteLine("- Microtxt");
                 Console.WriteLine("- Test");
+            }
+            else if (input == "lock")
+            {
+                Console.Write("Definissez un code: ");
+                string pass = Console.ReadLine();
+                @lock.lockpass(pass, version);
             }
 
             else

@@ -28,7 +28,7 @@ namespace Ode_OS.Apps
             }
             else if (input == "2")
             {
-                Console.Write("Voulez vous vraiment reinstaller les fichiers systemes ? ( o ou n ) ");
+                Console.Write("Voulez vous vraiment supprimer les fichiers systemes ? ( o ou n ) ");
                 string resetinput = Console.ReadLine();
                 if (resetinput == "o")
                 {
