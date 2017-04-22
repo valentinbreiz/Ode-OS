@@ -23,8 +23,8 @@ Ode OS est un systeme d'exploitation réalisé avec Cosmos et écrit en C# ! Ré
 
 ### À venir dans la version 0.0.3 et autres :
 * Lancer des programmes consoles complets.                        :white_check_mark:
-  - Integration d'un editeur de texte                             Presque terminé
-  - Amelioration application parametres                           Presque terminé
+  - Integration d'un editeur de texte                             **Presque terminé**
+  - Amelioration application parametres                           **Presque terminé**
 
 * Corriger quelques erreurs.
 * Installation de OdeOS                                           :white_check_mark:
