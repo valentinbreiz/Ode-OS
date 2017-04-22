@@ -18,23 +18,23 @@ Ode OS est un systeme d'exploitation réalisé avec Cosmos et écrit en C# ! Ré
 * Quelques autres commandes utiles à voir ci dessous
 * Tests rudimentaires
 * Applications pre-installés basiques
-  - Integration d'une application test.
 * Correction de quelques erreurs.
 * Blue Screen of Death quand il y a une erreur systeme.
 
 ### À venir dans la version 0.0.3 et autres :
-* Lancer des programmes consoles complets.
-  - Integration de [MIV](https://github.com/bartashevich/MIV) (editeur de texte)
+* Lancer des programmes consoles complets.                        :white_check_mark:
+  - Integration d'un editeur de texte                             Presque terminé
+  - Amelioration application parametres                           Presque terminé
 
 * Corriger quelques erreurs.
-* Installation de OdeOS
-  - Installation et désinstallation
-  - Formatage
-* Pouvoir supprimer un dossier qui contient des fichiers.
-* Gestion des utilisateurs avec base de donnée
+* Installation de OdeOS                                           :white_check_mark:
+  - Installation et désinstallation                               :white_check_mark:
+  - Formatage                                                     :white_check_mark:
+* Pouvoir supprimer un dossier qui contient des fichiers.         :white_check_mark:
+* Gestion des utilisateurs avec base de donnée.                   :white_check_mark:
 * Connexion réseau
 * Création d'une interface utilisateur (GUI)
-  - Gestion des fenêtres
+  - Gestion des fenêtres                                          :white_check_mark:
   - Gestion de la souris
   - Gestion d'un bureau et menus
   - Gestion des programmes fenêtres
@@ -80,6 +80,18 @@ ou pour retour
 ```
 cd ..
 ```
+Verouiller Ode OS
+```
+lock
+```
+Lancer un programme
+```
+prgm -s Nomduprogramme
+```
+Lister les programmes
+```
+prgm -s Nomduprogramme
+```
 ### Commandes utiles :
 
 Permet d'afficher les volumes disponibles :
@@ -104,7 +116,11 @@ infos
 ```
 
 ### Commandes tests :
-Permet de réaliser un crash test du systeme (ne fonctionne pas pour l'instant)
+Permet de réaliser un crash test du systeme
 ```
 test_crash
+```
+Permet d'afficher une fenêtre (pour l'instant pas de retour, juste affiché)
+```
+test_window
 ```
