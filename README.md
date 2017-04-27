@@ -1,13 +1,13 @@
 # Ode OS version 0.0.2
 
-Ode OS est un systeme d'exploitation réalisé avec Cosmos et écrit en C# ! Réalisé par valentinbreiz aidé par [Memphis](https://github.com/MichaelTheShifter/memphis) et l'équipe Cosmos.
+Ode OS est un système d'exploitation réalisé avec Cosmos, écrit en C# et réalisé par valentinbreiz !
 
-## Pre-requis pour generer
+## Pre-requis pour generer Ode OS
 
 * Visual Studio 2015
 * [Cosmos DevKit](https://github.com/CosmosOS/Cosmos/wiki/Devkit) : Un petit tutoriel (en anglais) pour générer Cosmos Devkit
-   - Avec les fichiers de la PR522 (https://github.com/CosmosOS/Cosmos/pull/522)
-* VMWare ou Bochs
+   - Avec ces fichiers [Cosmos Bugfixes branch](https://github.com/jp2masa/Cosmos/tree/Bugfixes) par jp2masa.
+* VMWare ou Bochs (machines virtuelles)
 
 
 ## Fonctionnalités
