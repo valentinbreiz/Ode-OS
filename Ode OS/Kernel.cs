@@ -817,10 +817,6 @@ namespace CosmosKernel2
                     PrgmParametres app = new PrgmParametres();
                     app.MainProgram();
                 }
-                if (prgm == "Microtxt")
-                {
-                    PrgmMicrotxt.init();
-                }
                 if (prgm == "Snake")
                 {
                     PrgmSnake app = new PrgmSnake();
