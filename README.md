@@ -30,17 +30,17 @@ Etat mis à jour le 01/05/2017
 
 * Corriger quelques erreurs.                                      :grey_question: **En cours**
 * Installation de OdeOS                                           :heavy_check_mark:
-  - Installation et désinstallation                               :x:
+  - Installation et désinstallation                               :x: **Pas implémenté dans Cosmos**
   - Formatage                                                     :heavy_check_mark:
 * Pouvoir supprimer un dossier qui contient des fichiers.         :heavy_check_mark:
 * Gestion des utilisateurs avec base de donnée.                   :heavy_check_mark: :grey_question:
-* Connexion réseau                                                :x:
-* Création d'une interface utilisateur (GUI)
+* Connexion réseau                                                :x: **Pas implémenté dans Cosmos**
+* Création d'une interface utilisateur (GUI)                      :grey_question: **Pas encore commencé**
   - Gestion des fenêtres                                          :grey_question:
   - Gestion de la souris                                          :grey_question:
   - Gestion d'un bureau et menus                                  :grey_question:
   - Gestion des programmes fenêtres                               :grey_question:
-* Traduction du système par [Kevin](https://github.com/TheCool1James) :grey_question:
+* Traduction du système par [Kevin](https://github.com/TheCool1James) :grey_question: **En cours**
 
 ## Commandes
 
