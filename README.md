@@ -22,23 +22,23 @@ Ode OS est un système d'exploitation réalisé avec Cosmos, écrit en C# et ré
 * Blue Screen of Death quand il y a une erreur systeme.
 
 ### À venir dans la version 0.0.3 et autres :
-* Lancer des programmes consoles complets.                        :white_check_mark:
-  - Integration d'un editeur de texte                             **Presque terminé**
-  - Amelioration application parametres                           **Presque terminé**
+* Lancer des programmes consoles complets.                        :heavy_check_mark:
+  - Integration d'un editeur de texte                             :grey_question: **Presque terminé**
+  - Amelioration application parametres                           :grey_question: **Presque terminé** 
 
-* Corriger quelques erreurs.
-* Installation de OdeOS                                           :white_check_mark:
-  - Installation et désinstallation                               :white_check_mark:
-  - Formatage                                                     :white_check_mark:
-* Pouvoir supprimer un dossier qui contient des fichiers.         :white_check_mark:
-* Gestion des utilisateurs avec base de donnée.                   :white_check_mark:
-* Connexion réseau
+* Corriger quelques erreurs.                                      :grey_question: **En cours**
+* Installation de OdeOS                                           :heavy_check_mark:
+  - Installation et désinstallation                               :heavy_check_mark:
+  - Formatage                                                     :heavy_check_mark:
+* Pouvoir supprimer un dossier qui contient des fichiers.         :heavy_check_mark:
+* Gestion des utilisateurs avec base de donnée.                   :heavy_check_mark:
+* Connexion réseau                                                :x:
 * Création d'une interface utilisateur (GUI)
-  - Gestion des fenêtres                                          :white_check_mark:
-  - Gestion de la souris
-  - Gestion d'un bureau et menus
-  - Gestion des programmes fenêtres
-* Traduction du système par [Kevin](https://github.com/TheCool1James)
+  - Gestion des fenêtres                                          :grey_question:
+  - Gestion de la souris                                          :grey_question:
+  - Gestion d'un bureau et menus                                  :grey_question:
+  - Gestion des programmes fenêtres                               :grey_question:
+* Traduction du système par [Kevin](https://github.com/TheCool1James) :grey_question:
 
 ## Commandes
 
