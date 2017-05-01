@@ -124,5 +124,5 @@ test_crash
 ```
 Permet d'afficher une fenêtre (pour l'instant pas de retour, juste affiché)
 ```
-test_window
+test_graphic
 ```
