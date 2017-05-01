@@ -28,7 +28,7 @@ Ode OS est un système d'exploitation réalisé avec Cosmos, écrit en C# et ré
 
 * Corriger quelques erreurs.                                      :grey_question: **En cours**
 * Installation de OdeOS                                           :heavy_check_mark:
-  - Installation et désinstallation                               :heavy_check_mark:
+  - Installation et désinstallation                               :x:
   - Formatage                                                     :heavy_check_mark:
 * Pouvoir supprimer un dossier qui contient des fichiers.         :heavy_check_mark:
 * Gestion des utilisateurs avec base de donnée.                   :heavy_check_mark:
