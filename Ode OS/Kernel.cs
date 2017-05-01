@@ -10,7 +10,7 @@ using Ode_OS.System.graphic;
 
 #endregion
 
-namespace CosmosKernel2
+namespace Ode
 {
     public class Kernel : Sys.Kernel
     {
@@ -89,7 +89,7 @@ namespace CosmosKernel2
                     Console.ForegroundColor = ConsoleColor.White;
                     Console.ReadKey();
                 }
-                Console.Clear()
+                Console.Clear();
             }
             catch (Exception ex)
             {
@@ -551,7 +551,6 @@ namespace CosmosKernel2
             {
                 Console.WriteLine($@"Informations systemes :
 - Nombre de partitions : {Sys.FileSystem.VFS.VFSManager.GetVolumes().Count}
-- Capacite du systeme : {Sys.FileSystem.VFS.VFSManager.GetVolumes().Capacity}
 - La date actuelle est : Test");
                 Console.WriteLine("- Propulse par CosmosOS et ecrit en C#");
                 Console.WriteLine("- Ode v" + version + " - fait par valentinbreiz");

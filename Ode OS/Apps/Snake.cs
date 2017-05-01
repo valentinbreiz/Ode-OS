@@ -280,13 +280,13 @@ namespace Ode_OS.Apps
         {
             Console.WriteLine(); Console.WriteLine(); Console.WriteLine(); Console.WriteLine(); Console.WriteLine();
             Console.WriteLine(); Console.WriteLine(); Console.WriteLine(); Console.WriteLine(); Console.WriteLine();
-            Console.WriteLine("  #####                                 #######  #####  ");
-            Console.WriteLine(" #     # #    #   ##   #    # ######    #     # #     # ");
-            Console.WriteLine(" #       ##   #  #  #  #   #  #         #     # #       ");
-            Console.WriteLine("  #####  # #  # #    # ####   #####     #     #  #####  ");
-            Console.WriteLine("       # #  # # ###### #  #   #         #     #       # ");
-            Console.WriteLine(" #     # #   ## #    # #   #  #         #     # #     # ");
-            Console.WriteLine("  #####  #    # #    # #    # ######    #######  #####  ");
+            Console.WriteLine("  #####");
+            Console.WriteLine(" #     # #    #   ##   #    # ######");
+            Console.WriteLine(" #       ##   #  #  #  #   #  #");
+            Console.WriteLine("  #####  # #  # #    # ####   #####");
+            Console.WriteLine("       # #  # # ###### #  #   #");
+            Console.WriteLine(" #     # #   ## #    # #   #  #");
+            Console.WriteLine("  #####  #    # #    # #    # ###### v" + prgm_version);
             Console.WriteLine("                                  by Denis Bartashevich");
             Console.WriteLine("");
 
@@ -296,7 +296,7 @@ namespace Ode_OS.Apps
         {
             Console.Clear();
             printLogo();
-            Console.Write("Welcome to SnakeOS, write snake to start the game: ");
+            Console.Write("Welcome to Snake, write snake to start the game: ");
             switch (Console.ReadLine())
             {
                 case "snake":
@@ -370,6 +370,7 @@ namespace Ode_OS.Apps
                         }
                         else if (x == ConsoleKey.Escape)
                         {
+                            Console.Clear();
                             break;
                         }
                         else if (x == ConsoleKey.R)
@@ -380,6 +381,7 @@ namespace Ode_OS.Apps
                     break;
                 default:
                     Console.WriteLine("Wrong option.");
+                    Run();
                     break;
             }
         }
