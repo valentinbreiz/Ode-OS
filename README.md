@@ -122,7 +122,11 @@ Permet de réaliser un crash test du systeme
 ```
 test_crash
 ```
-Permet d'afficher une fenêtre (pour l'instant pas de retour, juste affiché)
+Permet d'afficher une fenêtre console (pour l'instant pas de retour, juste affiché)
+```
+test_window
+```
+Permet de tester le système graphique.
 ```
 test_graphic
 ```
