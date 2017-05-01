@@ -78,19 +78,23 @@ Permet de se déplacer dans les dossiers :
 ```
 cd dossiercible
 ```
-ou pour retour
+ou pour retour :
 ```
 cd ..
 ```
-Verouiller Ode OS
+Verouiller Ode OS :
 ```
 lock
 ```
-Lancer un programme
+Lancer un programme :
 ```
 prgm -s Nomduprogramme
 ```
-Lister les programmes
+Lancer un programme contenu dans un fichier source (.ode) :
+```
+prgm -s -ode nomduprogramme.ode
+```
+Lister les programmes :
 ```
 prgm -s Nomduprogramme
 ```
@@ -118,15 +122,15 @@ infos
 ```
 
 ### Commandes tests :
-Permet de réaliser un crash test du systeme
+Permet de réaliser un crash test du systeme :
 ```
 test_crash
 ```
-Permet d'afficher une fenêtre console (pour l'instant pas de retour, juste affiché)
+Permet d'afficher une fenêtre console (pour l'instant pas de retour, juste affiché) :
 ```
 test_window
 ```
-Permet de tester le système graphique.
+Permet de tester le système graphique :
 ```
 test_graphic
 ```
