@@ -22,6 +22,8 @@ Ode OS est un système d'exploitation réalisé avec Cosmos, écrit en C# et ré
 * Blue Screen of Death quand il y a une erreur systeme.
 
 ### À venir dans la version 0.0.3 et autres :
+Etat mis à jour le 01/05/2017
+
 * Lancer des programmes consoles complets.                        :heavy_check_mark:
   - Integration d'un editeur de texte                             :grey_question: **Presque terminé**
   - Amelioration application parametres                           :grey_question: **Presque terminé** 
@@ -31,7 +33,7 @@ Ode OS est un système d'exploitation réalisé avec Cosmos, écrit en C# et ré
   - Installation et désinstallation                               :x:
   - Formatage                                                     :heavy_check_mark:
 * Pouvoir supprimer un dossier qui contient des fichiers.         :heavy_check_mark:
-* Gestion des utilisateurs avec base de donnée.                   :heavy_check_mark:
+* Gestion des utilisateurs avec base de donnée.                   :heavy_check_mark: :grey_question:
 * Connexion réseau                                                :x:
 * Création d'une interface utilisateur (GUI)
   - Gestion des fenêtres                                          :grey_question:
