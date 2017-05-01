@@ -4,21 +4,22 @@ using System.Linq;
 using System.Text;
 using System.IO;
 using System.Threading.Tasks;
+using Ode_OS.System.assets;
 
 namespace Ode_OS.Apps
 
 {
 
-    class PgrmMicrotxt
+    class PrgmMicrotxt
     {
         public static string adr = @"0:\File.txt";
-        
+        public static string prgm_version = "1.1.1";
         public static void init()
 
         {
             Console.Clear();
             Console.WriteLine("###############################################################################");
-            Console.WriteLine("# Quitter : F12   Informations : F2                    Microtxt Version 1.1.1 #");
+            Console.WriteLine("# Quitter : F12   Informations : F2                        Microtxt mod "+ prgm_version + " #");
             Console.WriteLine("# Nouveau : F11   Sauvegarder  : F1                                           #");
             Console.WriteLine("###############################################################################");
             Console.WriteLine("*                                                                             *");
@@ -48,14 +49,34 @@ namespace Ode_OS.Apps
 
         public static void main()
         {
-
+            
             string current_directory = "0:\\";
 
+            
+
+            //Console.Write("");
+            //var texte = Console.ReadLine();
+
+            
+
+//
+           // List<string> list = new List<string>(); // création de la liste
+
+            //list.Add(texte);
+           
+
+            //foreach (string line in list)
+            //{
+            //    Console.WriteLine(line);
+            //}
+
             ConsoleKeyInfo pressed_key = Console.ReadKey(); // read keystroke
+            string testo = pressed_key.KeyChar.ToString(); //RESULT = A
 
             switch (pressed_key.Key)
 
             {
+
                 case ConsoleKey.UpArrow: //Move cursor up
                     if (Console.CursorTop > 4)
                     {
@@ -111,7 +132,7 @@ namespace Ode_OS.Apps
                     return;
 
                 case ConsoleKey.F1:
-                    string testo = pressed_key.KeyChar.ToString();
+                    
 
                     var f = File.Create(current_directory + "test.txt");
                     f.Close();
@@ -120,7 +141,17 @@ namespace Ode_OS.Apps
                     Console.Clear();
                     return;
 
-
+                case ConsoleKey.F2:
+                    windows.Windows_info(
+                        8, //Height
+                        "            -Informations-             ",  //Title
+                        3, //Nomber of lines
+                        "Microtxt mod version " + prgm_version + "\n*                  |Cree par CasteSoftworks, traduit et\n*                  |adapte par valentinbreiz.",
+                        "         ||Fermer la fenetre||         "); //Button                                  Text
+                    Console.ReadKey();
+                    Console.Clear();
+                    init();
+                    return;
             }
             main();
         }

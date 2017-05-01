@@ -8,15 +8,16 @@ using Ode_OS.Apps;
 
 namespace Ode_OS.Apps
 {
-    class PgrmParametres
+    class PrgmParametres
     {
         string current_directory = "0:\\";
+        public static string prgm_version = "0.1";
         bool running = true;
 
         public void MainProgram()
         {
             Console.Clear();
-            Console.WriteLine("Parametres 0.1");
+            Console.WriteLine("Parametres "+ prgm_version);
             Console.WriteLine("1 pour Modifier compte utilisateur");
             Console.WriteLine("2 pour Reinitialisation systeme");
             Console.WriteLine("0 pour quitter les parametres");
@@ -43,8 +44,8 @@ namespace Ode_OS.Apps
                         try
                         {
                             Console.WriteLine("Suppression des fichiers et dossiers ...");
-                            File.Delete(current_directory + "System\\user.txt");
-                            File.Delete(current_directory + "System\\pass.txt");
+                            File.Delete(current_directory + "System\\user");
+                            File.Delete(current_directory + "System\\pass");
                             Directory.Delete("0:\\System");
                             Console.ForegroundColor = ConsoleColor.Green;
                             Console.WriteLine("[OK]");

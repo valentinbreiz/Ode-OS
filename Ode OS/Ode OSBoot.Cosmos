@@ -11,29 +11,29 @@
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-    <Profile>ISO</Profile>
+    <Profile>VMware</Profile>
     <DebugEnabled>False</DebugEnabled>
     <DebugMode>Source</DebugMode>
     <TraceMode>User</TraceMode>
     <EnableGDB>False</EnableGDB>
     <StartCosmosGDB>false</StartCosmosGDB>
-    <VMWareEdition>Player</VMWareEdition>
+    <VMWareEdition>Workstation</VMWareEdition>
     <OutputPath>bin\Debug\</OutputPath>
     <Name>Ode OSBoot</Name>
-    <Description>Creates a bootable ISO image which can be burned to a DVD. After running the selected project, an explorer window will open containing the ISO file. The ISO file can then be burned to a CD or DVD and used to boot a physical or virtual system.</Description>
+    <Description>Use VMware Player or Workstation to deploy and debug.</Description>
     <Deployment>ISO</Deployment>
-    <Launch>None</Launch>
+    <Launch>VMware</Launch>
     <VisualStudioDebugPort>Pipe: Cosmos\Serial</VisualStudioDebugPort>
     <PxeInterface>192.168.1.18</PxeInterface>
     <VMware_Name>Ode OSBoot</VMware_Name>
     <VMware_Description>Use VMware Player or Workstation to deploy and debug.</VMware_Description>
     <VMware_Deployment>ISO</VMware_Deployment>
     <VMware_Launch>VMware</VMware_Launch>
-    <VMware_DebugEnabled>true</VMware_DebugEnabled>
+    <VMware_DebugEnabled>False</VMware_DebugEnabled>
     <VMware_DebugMode>Source</VMware_DebugMode>
     <VMware_VisualStudioDebugPort>Pipe: Cosmos\Serial</VMware_VisualStudioDebugPort>
     <VMware_PxeInterface>192.168.1.18</VMware_PxeInterface>
-    <VMware_VMwareEdition>Player</VMware_VMwareEdition>
+    <VMware_VMwareEdition>Workstation</VMware_VMwareEdition>
     <VMware_OutputPath>bin\Debug\</VMware_OutputPath>
     <VMware_EnableGDB>False</VMware_EnableGDB>
     <VMware_StartCosmosGDB>false</VMware_StartCosmosGDB>
@@ -73,7 +73,7 @@
     <PXE_DebugEnabled>False</PXE_DebugEnabled>
     <PXE_DebugMode>Source</PXE_DebugMode>
     <PXE_VisualStudioDebugPort>Pipe: Cosmos\Serial</PXE_VisualStudioDebugPort>
-    <PXE_PxeInterface>192.168.1.18</PXE_PxeInterface>
+    <PXE_PxeInterface>192.168.1.25</PXE_PxeInterface>
     <PXE_VMwareEdition>Player</PXE_VMwareEdition>
     <PXE_OutputPath>bin\Debug\</PXE_OutputPath>
     <PXE_EnableGDB>False</PXE_EnableGDB>
@@ -91,6 +91,19 @@
     <USB_OutputPath>bin\Debug\</USB_OutputPath>
     <USB_EnableGDB>False</USB_EnableGDB>
     <USB_StartCosmosGDB>false</USB_StartCosmosGDB>
+    <Bochs_StackCorruptionDetectionEnabled>True</Bochs_StackCorruptionDetectionEnabled>
+    <Bochs_Name>Ode OSBoot</Bochs_Name>
+    <Bochs_Description>Use Bochs emulator to deploy and debug.</Bochs_Description>
+    <Bochs_Deployment>ISO</Bochs_Deployment>
+    <Bochs_Launch>Bochs</Bochs_Launch>
+    <Bochs_DebugEnabled>False</Bochs_DebugEnabled>
+    <Bochs_DebugMode>Source</Bochs_DebugMode>
+    <Bochs_VisualStudioDebugPort>Pipe: Cosmos\Serial</Bochs_VisualStudioDebugPort>
+    <Bochs_PxeInterface>192.168.1.18</Bochs_PxeInterface>
+    <Bochs_VMwareEdition>Player</Bochs_VMwareEdition>
+    <Bochs_OutputPath>bin\Debug\</Bochs_OutputPath>
+    <Bochs_EnableGDB>False</Bochs_EnableGDB>
+    <Bochs_StartCosmosGDB>false</Bochs_StartCosmosGDB>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include=".\Ode OS.csproj">

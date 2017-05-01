@@ -17,7 +17,6 @@ namespace Ode_OS.Apps
             Console.WriteLine("Vous avez ecrit '" + input + "'");
             Console.WriteLine("Appuyez sur une touche pour quitter le programme");
             Console.ReadKey(true);
-            Console.Clear();
         }
     }
 }

@@ -16,9 +16,9 @@ namespace Ode_OS.System
             {
                 Console.Clear();
                 logo.OdeOSlogo(version);
-
                 int x = Console.CursorLeft;
                 int y = Console.CursorTop;
+
                 Console.SetCursorPosition(19, 13);
                 Console.WriteLine("|---------------------------------------|");
                 Console.SetCursorPosition(x, y);

@@ -11,27 +11,18 @@ namespace Ode_OS.System
     {
         public static void StopKernel(Exception ex)
         {
-
             Console.BackgroundColor = ConsoleColor.DarkBlue;
             Console.Clear();
-            Console.WriteLine("THE BLUE SCREEN OF DEATH 0.1");
-            Console.WriteLine("ERREUR SYSTEME");
+            Console.WriteLine("ERREUR SYSTEME                                     THE BLUE SCREEN OF DEATH 0.2");
+            Console.WriteLine("");
             string ex_message = ex.Message;
-            string inner_message = "<aucun>";
+            string inner_message = "<aucune>";
             if (ex.InnerException != null)
                 inner_message = ex.InnerException.Message;
-            Console.WriteLine($@"Erreur : {ex_message}
-Message d'exception : {inner_message}");
-
+            Console.WriteLine($@"Message d'exception : {ex_message}
+Erreur : {inner_message}");
             Console.WriteLine("Appuyez sur une touche pour redemarrer");
-            try
-            {
-                Console.ReadKey();
-            }
-            catch
-            {
-
-            }
+            Console.ReadKey();
             Sys.Power.Reboot();
         }
     }
