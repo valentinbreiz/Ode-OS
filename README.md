@@ -26,12 +26,13 @@ Etat mis à jour le 01/05/2017
 
 * Lancer des programmes consoles complets.                        :heavy_check_mark:
   - Integration d'un editeur de texte                             :grey_question: **Presque terminé**
-  - Amelioration application parametres                           :grey_question: **Presque terminé** 
+  - Amelioration application parametres                           :grey_question: **Presque terminé**
+  - Integration de [Snake](https://github.com/bartashevich/Snake) :heavy_check_mark:
 
 * Corriger quelques erreurs.                                      :grey_question: **En cours**
 * Installation de OdeOS                                           :heavy_check_mark:
-  - Installation et désinstallation                               :x: **Pas implémenté dans Cosmos**
-  - Formatage                                                     :heavy_check_mark:
+  - Installation et désinstallation                               :heavy_check_mark:
+  - Formatage                                                     :x: **Pas implémenté dans Cosmos**
 * Pouvoir supprimer un dossier qui contient des fichiers.         :heavy_check_mark:
 * Gestion des utilisateurs avec base de donnée.                   :heavy_check_mark: :grey_question:
 * Connexion réseau                                                :x: **Pas implémenté dans Cosmos**
