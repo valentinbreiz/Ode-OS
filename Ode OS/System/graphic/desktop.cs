@@ -80,7 +80,7 @@ namespace Ode_OS.System.graphic
                     //canvas.DrawLine(pen, m.getX(), m.getY(), m.getX(), m.getY() + 6);
                     //canvas.DrawLine(pen, m.getX(), m.getY(), m.getX() + 6, m.getY() + 6);
 
-                    //StartMenu();
+                    StartMenu();
                 }
             }
             catch (Exception e)
