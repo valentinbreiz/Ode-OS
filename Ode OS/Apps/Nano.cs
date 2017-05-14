@@ -1,10 +1,13 @@
-﻿using System;
+﻿/*
+* PROJECT:          Ode Operating System Development
+* CONTENT:          Liquid Text Editor
+* PROGRAMMERS:      Valentin Charbonnier <valentinbreiz@gmail.com>
+*                   TheCool1James        <kevindai02@outlook.com>
+*/
+
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
-using Sys = Cosmos.System;
 
 namespace Ode_OS.Apps
 {
@@ -98,10 +101,11 @@ namespace Ode_OS.Apps
                     case ConsoleKey.RightArrow: if (pointer < 80) { pointer++; Console.CursorLeft++; if (line[pointer] == 0) line[pointer] = ' '; } break;
                     case ConsoleKey.Backspace: deleteChar(); break;
                     case ConsoleKey.Delete: deleteChar(); break;
+                    //case ConsoleKey.Tab: deleteChar(); break;
                     case ConsoleKey.Enter:
                         lines.Add(new string(line).TrimEnd()); cleanArray(line); Console.CursorLeft = 0; Console.CursorTop++; pointer = 0;
                         break;
-                    default: line[pointer] = ch; pointer++; Console.Write(ch); break;
+                    default: line[pointer] = ch; pointer++; Console.Write(ch); break; //HERE
                 }
             }
             Console.Clear();

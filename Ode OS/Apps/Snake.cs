@@ -1,6 +1,12 @@
-﻿using System;
+﻿/*
+* PROJECT:          Ode Operating System Development
+* CONTENT:          Snake
+* PROGRAMMERS:      Valentin Charbonnier <valentinbreiz@gmail.com>
+*                   Denis                <https://github.com/bartashevich>
+*/
+
+using System;
 using System.Collections.Generic;
-using Sys = Cosmos.System;
 
 namespace Ode_OS.Apps
 {

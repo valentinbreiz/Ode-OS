@@ -1,10 +1,11 @@
-﻿using System;
-using Sys = Cosmos.System;
+﻿/*
+* PROJECT:          Ode Operating System Development
+* CONTENT:          Paramaters.
+* PROGRAMMERS:      Valentin Charbonnier <valentinbreiz@gmail.com>
+*/
+
+using System;
 using System.IO;
-using Cosmos.System.FileSystem;
-using Cosmos.System.Network.IPv4;
-using Cosmos.System.Network;
-using Ode_OS.Apps;
 
 namespace Ode_OS.Apps
 {

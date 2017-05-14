@@ -1,8 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿/*
+* PROJECT:          Ode Operating System Development
+* CONTENT:          The Blue Screen of Death
+* PROGRAMMERS:      Valentin Charbonnier <valentinbreiz@gmail.com>
+*/
+
+using System;
 using Sys = Cosmos.System;
 
 namespace Ode_OS.System
@@ -11,6 +13,7 @@ namespace Ode_OS.System
     {
         public static void StopKernel(Exception ex)
         {
+            
             Console.BackgroundColor = ConsoleColor.DarkBlue;
             Console.Clear();
             Console.WriteLine("ERREUR SYSTEME                                     THE BLUE SCREEN OF DEATH 0.2");

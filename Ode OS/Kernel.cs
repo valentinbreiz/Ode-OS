@@ -1,4 +1,10 @@
-﻿#region using;
+﻿/*
+* PROJECT:          Ode Operating System Development
+* CONTENT:          Kernel.cs, base of Ode operating system. Contain commands, installation and other.
+* PROGRAMMERS:      Valentin Charbonnier <valentinbreiz@gmail.com>
+*/
+
+#region using;
 using System;
 using Sys = Cosmos.System;
 using System.IO;
@@ -7,7 +13,6 @@ using Ode_OS.Apps;
 using Ode_OS.System;
 using Ode_OS.System.assets;
 using Ode_OS.System.graphic;
-
 #endregion
 
 namespace Ode
@@ -46,7 +51,7 @@ namespace Ode
                 try
                 {
                     Console.WriteLine("Initialisation du systeme de fichier...");
-                    FS = new CosmosVFS();
+                    FS = new Sys.FileSystem.CosmosVFS();
                     FS.Initialize();
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("[OK]");
@@ -160,9 +165,7 @@ namespace Ode
 
                 if (name == "root" && pass == "")
                 {
-                        var f = File.Create("0:\\root");
-                        f.Close();
-                        goto main;
+                        goto root;
                     }
 
                 bool systemexist = Directory.Exists("0:\\System");
@@ -417,6 +420,36 @@ namespace Ode
                 }
             }
 
+        root:
+                {
+                    while (running)
+                    {
+                        try
+                        {
+                            Console.WriteLine(" ");
+                            int x = Console.CursorLeft;
+                            int y = Console.CursorTop;
+                            Console.SetCursorPosition(0, 0);
+                            Console.ForegroundColor = ConsoleColor.White;
+                            Console.BackgroundColor = ConsoleColor.Blue;
+                            Console.WriteLine("valentinbreiz.github.io                                              Ode v" + version);
+                            Console.BackgroundColor = ConsoleColor.Black;
+                            Console.WriteLine(" ");
+                            Console.SetCursorPosition(x, y);
+                            Console.ForegroundColor = ConsoleColor.White;
+
+                            Console.Write("root@ode:" + current_directory + "> ");
+                            string input = Console.ReadLine();
+                            input = input.Replace("/", "\\");
+                            InterpretCMD(input);
+                        }
+                        catch (Exception ex)
+                        {
+                            running = false;
+                            crash.StopKernel(ex);
+                        }
+                    }
+                }
         main:
             {
                 while (running)
@@ -437,32 +470,21 @@ namespace Ode
 
                         bool system = Directory.Exists("0:\\System");
                         
-                        if (!File.Exists("0:\\root"))
-                            {
-                                if (system == false)
+                                if (system == true)
                                 {
-                                    Console.Write("invit@ode:" + current_directory + "> ");
-                                    string input = Console.ReadLine();
-                                    input = input.Replace("/", "\\");
-                                    InterpretCMD(input);
-                                }
-                                else
-                                {
-                                    var name = File.ReadAllText("0:\\System\\user");
-                                    Console.Write(name + "@ode:" + current_directory + "> ");
-                                    string input = Console.ReadLine();
-                                    input = input.Replace("/", "\\");
-                                    InterpretCMD(input);
-                                }
-                            }
-                        else
-                            {
-                                Console.Write("root@ode:" + current_directory + "> ");
+                                var name = File.ReadAllText("0:\\System\\user");
+                                Console.Write(name + "@ode:" + current_directory + "> ");
                                 string input = Console.ReadLine();
                                 input = input.Replace("/", "\\");
                                 InterpretCMD(input);
-                            } 
-
+                            }
+                                else
+                                {
+                                Console.Write("invit@ode:" + current_directory + "> ");
+                                string input = Console.ReadLine();
+                                input = input.Replace("/", "\\");
+                                InterpretCMD(input);
+                            }
                     }
                     catch (Exception ex)
                     {
@@ -496,8 +518,7 @@ namespace Ode
                 if (shutinput == "o")
                 {
                     running = false;
-                    Stop();
-
+                    Sys.Power.Shutdown();
                 }
                 else if (shutinput == "n")
                 {
@@ -552,6 +573,7 @@ namespace Ode
                 Console.WriteLine($@"Informations systemes :
 - Nombre de partitions : {Sys.FileSystem.VFS.VFSManager.GetVolumes().Count}
 - La date actuelle est : Test");
+//-Ram disponible: { Ode_OS_System.Power.getRam()} octets
                 Console.WriteLine("- Propulse par CosmosOS et ecrit en C#");
                 Console.WriteLine("- Ode v" + version + " - fait par valentinbreiz");
             }
@@ -780,7 +802,7 @@ namespace Ode
                 windows.Windows_password("            -Fenetre test-             ", "Texte :                                ", "Texte : ", "         ||Fermer la fenetre||         ");
 
             }
-            else if (input == "test_graphic")
+            else if (input == "test_canvas")
             {
                 desktop desktop = new desktop();
                 desktop.Init();

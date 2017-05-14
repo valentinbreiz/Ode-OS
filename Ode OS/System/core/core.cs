@@ -1,10 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿/*
+* PROJECT:          Ode Operating System Development
+* CONTENT:          The beginning of an interpreter ?
+* PROGRAMMERS:      Valentin Charbonnier <valentinbreiz@gmail.com>
+*/
 
+using System;
+using System.IO;
 
 namespace Ode_OS.System
 {

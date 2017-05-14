@@ -1,10 +1,12 @@
-﻿using Cosmos.System.FileSystem;
+﻿/*
+* PROJECT:          Ode Operating System Development
+* CONTENT:          Ode Studio (Like Visual Studio)
+* PROGRAMMERS:      Valentin Charbonnier <valentinbreiz@gmail.com>
+*/
+
+using Cosmos.System.FileSystem;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Ode_OS.System;
 
 namespace Ode_OS.Apps
