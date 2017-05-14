@@ -7,7 +7,7 @@ Ode OS est un système d'exploitation réalisé avec Cosmos, écrit en C# et ré
 
 * Visual Studio 2015
 * [Cosmos DevKit](https://github.com/CosmosOS/Cosmos/wiki/Devkit) : Un petit tutoriel (en anglais) pour générer Cosmos Devkit
-   - Avec ces fichiers [Cosmos Bugfixes branch](https://github.com/jp2masa/Cosmos/tree/Bugfixes) par jp2masa.
+   - Avec cette archive : [Cosmos](https://github.com/valentinbreiz/Cosmos)
 * VMWare ou Bochs (machines virtuelles)
 
 
@@ -37,7 +37,7 @@ Etat mis à jour le 01/05/2017
 * Pouvoir supprimer un dossier qui contient des fichiers.         :heavy_check_mark:
 * Gestion des utilisateurs avec base de donnée.                   :heavy_check_mark: :grey_question:
 * Connexion réseau                                                :x: **Pas implémenté dans Cosmos**
-* Création d'une interface utilisateur (GUI)                      :grey_question: **Pas encore commencé**
+* Création d'une interface utilisateur (GUI)                      :grey_question: **En cours**, **Ne fonctionne que sous Bochs**
   - Gestion des fenêtres                                          :grey_question:
   - Gestion de la souris                                          :grey_question:
   - Gestion d'un bureau et menus                                  :grey_question:
