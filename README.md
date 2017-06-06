@@ -25,6 +25,7 @@ Ode OS est un système d'exploitation réalisé avec Cosmos, écrit en C# et ré
 ### À venir dans la version 0.0.3 et autres :
 Etat mis à jour le 01/05/2017
 
+* Port de Ode vers Visual Studio 2017                             :grey_question: **Presque terminé**
 * Lancer des programmes consoles complets.                        :heavy_check_mark:
   - Integration d'un editeur de texte                             :grey_question: **Presque terminé**
   - Amelioration application parametres                           :grey_question: **Presque terminé**
