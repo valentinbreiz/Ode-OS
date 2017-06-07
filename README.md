@@ -3,12 +3,7 @@ Ode operating system is developed with the Cosmos project in C#.
 
 <p align="center">
 
-<p>  .88888.        dP </p>
-<p> d8'   `8b       88 </p>
-<p> 88     88 .d888b88 .d8888b.</p>
-<p> 88     88 88'  `88 88ooood8</p>
-<p> Y8.   .8P 88.  .88 88.</p>
-<p>  `8888P'  `88888P8 `88888P' operating system</p>
+<img src="https://image.noelshack.com/fichiers/2017/14/1491572104-logo.png" width="256" title="LAB SI Logo">
 
 </p>
 
