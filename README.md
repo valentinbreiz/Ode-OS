@@ -3,7 +3,7 @@ Ode operating system is developed with the Cosmos project in C#.
 
 <p align="center">
 
-<img src="https://image.noelshack.com/fichiers/2017/14/1491572104-logo.png" width="256" title="LAB SI Logo">
+<img src="https://image.noelshack.com/fichiers/2017/23/1496827492-odeos.png" width="256" title="LAB SI Logo">
 
 </p>
 
