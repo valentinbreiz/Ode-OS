@@ -2,7 +2,14 @@
 Ode operating system is developed with the Cosmos project in C#.
 
 <p align="center">
-  <img src="https://image.noelshack.com/fichiers/2017/14/1491572104-logo.png" width="256" title="Ode Logo">
+
+  .88888.        dP
+ d8'   `8b       88
+ 88     88 .d888b88 .d8888b.
+ 88     88 88'  `88 88ooood8
+ Y8.   .8P 88.  .88 88.
+  `8888P'  `88888P8 `88888P' operating system
+
 </p>
 
 ## Wiki
