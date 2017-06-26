@@ -102,15 +102,17 @@ namespace Ode_OS.System.graphic
                     switch (pressed_key.Key)
                     {
                 case ConsoleKey.X:
-                    Sys.Power.Shutdown();
+                    
+                    //Sys.Power.Shutdown();
                     break;
 
                 case ConsoleKey.C:
                     Sys.Power.Reboot();
                     break;
 
-                case ConsoleKey.LeftWindows:
-                            if (startmenu == false)
+                //case ConsoleKey.LeftWindows:
+                case ConsoleKey.A:
+                    if (startmenu == false)
                             {
                                 pen.Color = Color.DarkCyan;
                                 canvas.DrawFilledRectangle(pen, 0, 300, 390, 250);

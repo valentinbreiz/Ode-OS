@@ -1,66 +1,17 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project Sdk="Microsoft.Net.Sdk">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{285AD3BE-9F0F-4182-8A59-8731FBD4CCE1}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Ode_OS</RootNamespace>
-    <AssemblyName>Ode OS</AssemblyName>
-    <FileAlignment>512</FileAlignment>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
-    <TargetFrameworkProfile />
+    <TargetFramework>netstandard1.5</TargetFramework>
+    <ProjectGuid>{ba3b57da-189c-45af-9452-0c465d07d9b0}</ProjectGuid>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
-    <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <DebugType>full</DebugType>
-    <PlatformTarget>x86</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <Optimize>true</Optimize>
-    <DebugType>pdbonly</DebugType>
-    <PlatformTarget>x86</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
+
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
-    <Reference Include="Cosmos.System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5ae71220097cb983, processorArchitecture=MSIL" />
-    <Reference Include="Cosmos.Debug.Kernel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5ae71220097cb983, processorArchitecture=MSIL" />
+    <None Remove="Ode_OSBoot.Cosmos" />
   </ItemGroup>
+  
   <ItemGroup>
-    <Compile Include="Apps\AppList.cs" />
-    <Compile Include="Apps\Nano.cs" />
-    <Compile Include="Apps\OdeStudio.cs" />
-    <Compile Include="Apps\Parametres.cs" />
-    <Compile Include="Apps\Snake.cs" />
-    <Compile Include="Apps\Test.cs" />
-    <Compile Include="Kernel.cs" />
-    <Compile Include="AssemblyInfo.cs" />
-    <Compile Include="System\assets\logo.cs" />
-    <Compile Include="System\assets\windows.cs" />
-    <Compile Include="System\core\core.cs" />
-    <Compile Include="System\crash.cs" />
-    <Compile Include="System\graphic\desktop.cs" />
-    <Compile Include="System\lock.cs" />
+    <PackageReference Include="Cosmos.Debug.Kernel" Version="1.0.0-*" />
+    <PackageReference Include="Cosmos.System" Version="1.0.0-*" />
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+
 </Project>

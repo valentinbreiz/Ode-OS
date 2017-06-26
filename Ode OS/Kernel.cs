@@ -364,7 +364,7 @@ namespace Ode
                         Console.SetCursorPosition(xx, yy);
 
                         var f = File.Create("0:\\System\\user");
-                        f.Close();
+
                         Console.SetCursorPosition(0, 13);
                         Console.ForegroundColor = ConsoleColor.Green;
                         Console.WriteLine("########################################");
@@ -372,7 +372,7 @@ namespace Ode
                         Console.SetCursorPosition(xx, yy);
 
                         var g = File.Create("0:\\System\\pass");
-                        g.Close();
+
                         Console.SetCursorPosition(0, 13);
                         Console.ForegroundColor = ConsoleColor.Green;
                         Console.WriteLine("######################################################");
@@ -518,7 +518,8 @@ namespace Ode
                 if (shutinput == "o")
                 {
                     running = false;
-                    Sys.Power.Shutdown();
+                    Stop();
+                    //Sys.Power.Shutdown();
                 }
                 else if (shutinput == "n")
                 {

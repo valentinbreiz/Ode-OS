@@ -66,7 +66,7 @@ namespace Ode_OS.Apps
                         FS.CreateDirectory("0:\\Users\\" + name + "\\Documents\\OdeStudio\\Projects\\" + nomprojet);
 
                         var f = File.Create("0:\\Users\\" + name + "\\Documents\\OdeStudio\\Projects\\" + nomprojet + "\\solution");
-                        f.Close();
+                        
                         File.WriteAllText("0:\\Users\\" + name + "\\Documents\\OdeStudio\\Projects\\" + nomprojet + "\\solution", "PATH=0:\\" + "\n" + "SOURCE=" + source);
                         Console.Clear();
 
@@ -164,7 +164,7 @@ namespace Ode_OS.Apps
                     FS.CreateDirectory("0:\\Users\\" + name + "\\Documents\\OdeStudio\\Projects\\" + nomprojet);
 
                     var f = File.Create("0:\\Users\\" + name + "\\Documents\\OdeStudio\\Projects\\" + nomprojet + "\\solution");
-                    f.Close();
+                    
                     File.WriteAllText("0:\\Users\\" + name + "\\Documents\\OdeStudio\\Projects\\" + nomprojet + "\\solution", "PATH=0:\\" + "\n" + "SOURCE=" + source);
                     Console.Clear();
 
