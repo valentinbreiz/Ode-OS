@@ -54,11 +54,11 @@ namespace Ode_OS.System.assets
             Console.WriteLine("|---------------------------------------|");
             Console.SetCursorPosition(x, y);
 
-            Console.SetCursorPosition(19, vartop+1);
+            Console.SetCursorPosition(19, vartop + 1);
             Console.WriteLine("|" + title + "|");
             Console.SetCursorPosition(x, y);
 
-            Console.SetCursorPosition(19, vartop+2);
+            Console.SetCursorPosition(19, vartop + 2);
             Console.WriteLine("|                                       |");
             Console.SetCursorPosition(x, y);
 
@@ -69,20 +69,20 @@ namespace Ode_OS.System.assets
                 Console.WriteLine("|                                       |");
                 Console.SetCursorPosition(x, y);
 
-                Console.SetCursorPosition(19, vartop+3);
+                Console.SetCursorPosition(19, vartop + 3);
                 Console.WriteLine("|" + textshowed);
                 Console.SetCursorPosition(x, y);
 
-                Console.SetCursorPosition(19, vartop+4);
+                Console.SetCursorPosition(19, vartop + 4);
                 Console.WriteLine("|                                       |");
                 Console.SetCursorPosition(x, y);
 
 
-                Console.SetCursorPosition(19, vartop+5);
+                Console.SetCursorPosition(19, vartop + 5);
                 Console.WriteLine("|" + button + "|");
                 Console.SetCursorPosition(x, y);
 
-                Console.SetCursorPosition(19, vartop+6);
+                Console.SetCursorPosition(19, vartop + 6);
                 Console.WriteLine("|---------------------------------------|");
                 Console.SetCursorPosition(x, y);
             }
@@ -143,7 +143,7 @@ namespace Ode_OS.System.assets
                 Console.SetCursorPosition(x, y);
             }
 
-            
+
         }
         internal static string Result(string result) //Does not work for now.
         {

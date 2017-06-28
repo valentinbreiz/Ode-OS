@@ -16,7 +16,8 @@ namespace Ode_OS.System
             Console.Clear();
             string filetext = File.ReadAllText(apppath);
 
-            if (filetext.StartsWith("PATH=")){
+            if (filetext.StartsWith("PATH="))
+            {
 
                 string searchForThis = "SOURCE=";
                 int firstCharactersourceegual = filetext.IndexOf(searchForThis);

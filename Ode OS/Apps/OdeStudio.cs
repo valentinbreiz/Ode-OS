@@ -42,7 +42,8 @@ namespace Ode_OS.Apps
                 Console.Write("Nom du projet a ouvrir : ");
                 var nomprojet = Console.ReadLine();
                 var path = "0:\\Users\\" + name + "\\Documents\\OdeStudio\\Projects\\" + nomprojet;
-                if (Directory.Exists(path)){
+                if (Directory.Exists(path))
+                {
                     if (File.Exists(path + "\\solution"))
                     {
 
@@ -66,7 +67,7 @@ namespace Ode_OS.Apps
                         FS.CreateDirectory("0:\\Users\\" + name + "\\Documents\\OdeStudio\\Projects\\" + nomprojet);
 
                         var f = File.Create("0:\\Users\\" + name + "\\Documents\\OdeStudio\\Projects\\" + nomprojet + "\\solution");
-                        
+
                         File.WriteAllText("0:\\Users\\" + name + "\\Documents\\OdeStudio\\Projects\\" + nomprojet + "\\solution", "PATH=0:\\" + "\n" + "SOURCE=" + source);
                         Console.Clear();
 
@@ -133,7 +134,7 @@ namespace Ode_OS.Apps
                     Console.Clear();
                     MainProgram();
                 }
-                }
+            }
             else if (result == "new")
             {
                 Console.Clear();
@@ -160,27 +161,27 @@ namespace Ode_OS.Apps
 
                 Console.WriteLine("Sauvegarde du projet...");
 
-               
-                    FS.CreateDirectory("0:\\Users\\" + name + "\\Documents\\OdeStudio\\Projects\\" + nomprojet);
 
-                    var f = File.Create("0:\\Users\\" + name + "\\Documents\\OdeStudio\\Projects\\" + nomprojet + "\\solution");
-                    
-                    File.WriteAllText("0:\\Users\\" + name + "\\Documents\\OdeStudio\\Projects\\" + nomprojet + "\\solution", "PATH=0:\\" + "\n" + "SOURCE=" + source);
+                FS.CreateDirectory("0:\\Users\\" + name + "\\Documents\\OdeStudio\\Projects\\" + nomprojet);
+
+                var f = File.Create("0:\\Users\\" + name + "\\Documents\\OdeStudio\\Projects\\" + nomprojet + "\\solution");
+                
+                File.WriteAllText("0:\\Users\\" + name + "\\Documents\\OdeStudio\\Projects\\" + nomprojet + "\\solution", "PATH=0:\\" + "\n" + "SOURCE=" + source);
+                Console.Clear();
+
+                Console.WriteLine("Programme sauvegarde !");
+                Console.WriteLine("Voulez vous generer et tester le projet ? (o ou n)");
+                var result1 = Console.ReadLine();
+                if (result1 == "o")
+                {
+                    corecompiler coredotode = new corecompiler();
+                    coredotode.beginbuild("0:\\Users\\" + name + "\\Documents\\OdeStudio\\Projects\\" + nomprojet + "\\solution", nomprojet, true);
+                }
+                else if (result1 == "n")
+                {
                     Console.Clear();
-
-                    Console.WriteLine("Programme sauvegarde !");
-                    Console.WriteLine("Voulez vous generer et tester le projet ? (o ou n)");
-                    var result1 = Console.ReadLine();
-                    if (result1 == "o")
-                    {
-                        corecompiler coredotode = new corecompiler();
-                        coredotode.beginbuild("0:\\Users\\" + name + "\\Documents\\OdeStudio\\Projects\\" + nomprojet + "\\solution", nomprojet, true);
-                    }
-                    else if (result1 == "n")
-                    {
-                        Console.Clear();
-                        MainProgram();
-                    }
+                    MainProgram();
+                }
                 else
                 {
                     Console.Clear();

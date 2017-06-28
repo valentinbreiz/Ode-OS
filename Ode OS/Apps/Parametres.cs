@@ -18,7 +18,7 @@ namespace Ode_OS.Apps
         public void MainProgram()
         {
             Console.Clear();
-            Console.WriteLine("Parametres "+ prgm_version);
+            Console.WriteLine("Parametres " + prgm_version);
             Console.WriteLine("1 pour Modifier compte utilisateur");
             Console.WriteLine("2 pour Reinitialisation systeme");
             Console.WriteLine("0 pour quitter les parametres");

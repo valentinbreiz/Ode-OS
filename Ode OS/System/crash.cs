@@ -13,7 +13,7 @@ namespace Ode_OS.System
     {
         public static void StopKernel(Exception ex)
         {
-            
+
             Console.BackgroundColor = ConsoleColor.DarkBlue;
             Console.Clear();
             Console.WriteLine("ERREUR SYSTEME                                     THE BLUE SCREEN OF DEATH 0.2");

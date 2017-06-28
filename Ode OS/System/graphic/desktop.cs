@@ -55,10 +55,17 @@ namespace Ode_OS.System.graphic
                 DrawStringP("A", "NONE", Color.DarkBlue, 190, 100);
                 DrawStringQ("A", "NONE", Color.Brown, 196, 100);
 
+                //*******TODO*******
+                //canvas.DrawFilledRectangle(pen, 0, 690, 30, 1279);
+                //******************
 
-                canvas.DrawFilledRectangle(pen, 0, 690, 30, 1279);
                 pen.Color = Color.LightGray;
-                canvas.DrawFilledRectangle(pen, 4, 694, 22, 22);
+
+                //*******TODO*******
+                //canvas.DrawFilledRectangle(pen, 4, 694, 22, 22);
+                //******************
+
+
                 DrawStringO("A", "NONE", Color.Black, 6, 702);
                 DrawStringD("A", "NONE", Color.Black, 12, 702);
                 DrawStringE("A", "NONE", Color.Black, 18, 702);
@@ -67,7 +74,7 @@ namespace Ode_OS.System.graphic
                 //m = new MouseDriver();
                 //m.init(1280, 720);
 
-                
+
                 while (true)
                 {
                     pen.Color = Color.Black;
@@ -93,39 +100,47 @@ namespace Ode_OS.System.graphic
             }
         }
 
-        public void StartMenu(){
+        public void StartMenu()
+        {
 
             Pen pen = new Pen(Color.DarkCyan);
 
             ConsoleKeyInfo pressed_key = Console.ReadKey();
 
-                    switch (pressed_key.Key)
-                    {
+            switch (pressed_key.Key)
+            {
                 case ConsoleKey.X:
+
                     
+
+                    //Ode.Kernel.Shutdown();
+                    //*******TODO*******
                     //Sys.Power.Shutdown();
+                    //******************
+
                     break;
 
                 case ConsoleKey.C:
                     Sys.Power.Reboot();
                     break;
 
+                //*******TODO*******
                 //case ConsoleKey.LeftWindows:
-                case ConsoleKey.A:
-                    if (startmenu == false)
-                            {
-                                pen.Color = Color.DarkCyan;
-                                canvas.DrawFilledRectangle(pen, 0, 300, 390, 250);
-                                startmenu = true;
-                            }
-                            else if (startmenu == true)
-                            {
-                                pen.Color = Color.White;
-                                canvas.DrawFilledRectangle(pen, 0, 300, 390, 250);
-                                startmenu = false;
-                            }
-                            break; 
-                    }
+                //    if (startmenu == false)
+                //    {
+                //        pen.Color = Color.DarkCyan;
+                //        canvas.DrawFilledRectangle(pen, 0, 300, 390, 250);
+                //        startmenu = true;
+                //    }
+                //    else if (startmenu == true)
+                //    {
+               //         pen.Color = Color.White;
+               //         canvas.DrawFilledRectangle(pen, 0, 300, 390, 250);
+               //         startmenu = false;
+                //    }
+               //     break;
+               //******************
+            }
             StartMenu();
         }
 

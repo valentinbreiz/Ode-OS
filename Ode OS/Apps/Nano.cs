@@ -21,10 +21,10 @@ namespace Ode_OS.Apps
         internal void filepath(string currentdirectory)
         {
             Console.Clear();
-            
+
             Console.BackgroundColor = ConsoleColor.Gray;
             Console.ForegroundColor = ConsoleColor.Black;
-            Console.WriteLine("Liquid Editor v"+ prgm_version+" par TheCool1James                                           ");
+            Console.WriteLine("Liquid Editor v" + prgm_version + " par TheCool1James                                           ");
             Console.ForegroundColor = ConsoleColor.White;
             Console.BackgroundColor = ConsoleColor.Black;
             Console.Write("Nom du fichier : ");
@@ -43,7 +43,7 @@ namespace Ode_OS.Apps
                 char ch = c.KeyChar;
                 if (c.Key == ConsoleKey.Escape)
                     break;
-                else if (c.Key == ConsoleKey.F1) 
+                else if (c.Key == ConsoleKey.F1)
                 {
                     Console.Clear();
                     Console.BackgroundColor = ConsoleColor.Gray;
@@ -53,10 +53,10 @@ namespace Ode_OS.Apps
                     Console.BackgroundColor = ConsoleColor.Black;
 
                     lines.Add(new string(line).TrimEnd()); //Add any unadded lines
-                        //listCheck();
+                                                           //listCheck();
                     final = lines.ToArray(); //Store vars
                     string foo = concatString(final); //Get the final text
-                        //Console.WriteLine("Here comes the concated text: \n" + foo);
+                    File.Create(currentdirectory + filename);                                  //Console.WriteLine("Here comes the concated text: \n" + foo);
                     File.WriteAllText(currentdirectory + filename, foo); //Write to file
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("Le fichier '" + filename + "' a ete sauvegarde dans '" + currentdirectory + "' !");
@@ -64,7 +64,7 @@ namespace Ode_OS.Apps
 
                     Console.ReadKey();
                     break;
-                    
+
                     /*else if(c.Key == ConsoleKey.End)
                     {
                         displayHelp(path);
@@ -142,7 +142,7 @@ namespace Ode_OS.Apps
             Console.SetCursorPosition(0, 0);
             Console.BackgroundColor = ConsoleColor.Gray;
             Console.ForegroundColor = ConsoleColor.Black;
-            Console.Write("Liquid Editor v"+ prgm_version+"              ");
+            Console.Write("Liquid Editor v" + prgm_version + "              ");
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.Write("[F1]Sauvegarder  [F2]Informations  [ESC]Quitter\n");
             Console.ForegroundColor = ConsoleColor.White;
@@ -177,7 +177,7 @@ namespace Ode_OS.Apps
             return s; //Just return the input...
         }
 
-        public void displayHelp(string filename , string currentdirectory)
+        public void displayHelp(string filename, string currentdirectory)
         {
             Console.Clear(); cleanArray(line);
             Console.WriteLine("Appuyez sur F1 pour sauvegarder. Appuyez sur Echap pour quitter sans sauvegarder.");
