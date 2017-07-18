@@ -15,7 +15,7 @@ Ode OS est un système d'exploitation réalisé avec Cosmos, écrit en C# et ré
 ## Pre-requis pour generer Ode OS
 
 * Visual Studio 2015
-* Installez Cosmos avec cette archive : [Cosmos](https://github.com/valentinbreiz/Cosmos)
+* Installez Cosmos avec cette archive : [Cosmos](https://github.com/jp2masa/cosmos/tree/Bugfixes)
   - [Install Devkit](https://github.com/CosmosOS/Cosmos/wiki/Devkit) : Un petit tutoriel (en anglais) pour générer Cosmos Devkit
 * VMWare ou Bochs (machines virtuelles)
 
