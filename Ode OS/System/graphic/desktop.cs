@@ -110,14 +110,7 @@ namespace Ode_OS.System.graphic
             switch (pressed_key.Key)
             {
                 case ConsoleKey.X:
-
-                    
-
-                    //Ode.Kernel.Shutdown();
-                    //*******TODO*******
-                    //Sys.Power.Shutdown();
-                    //******************
-
+                    Sys.Power.Shutdown();
                     break;
 
                 case ConsoleKey.C:
