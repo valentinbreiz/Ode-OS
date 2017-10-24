@@ -1,4 +1,4 @@
-# Ode operating system ([Now Alve!](https://github.com/Alve-OS/Alve-Operating-System))
+# Ode operating system ([Now Aura!](https://github.com/aura-systems/Aura-Operating-System))
 Ode operating system is developed with the Cosmos project in C#.
 
 <p align="center">
